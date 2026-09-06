@@ -8,12 +8,10 @@ const BASE =
 const INTERACTIVE = 'state-layer relative hover:border-primary hover:elevation-1 no-underline';
 
 export function Card({
-  as: Tag = 'div',
   href,
   className = '',
   children,
 }: {
-  as?: 'div' | 'article';
   href?: string;
   className?: string;
   children: ReactNode;
@@ -25,5 +23,5 @@ export function Card({
       </Link>
     );
   }
-  return <Tag className={`${BASE} ${className}`}>{children}</Tag>;
+  return <div className={`${BASE} ${className}`}>{children}</div>;
 }
