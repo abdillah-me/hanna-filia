@@ -53,10 +53,10 @@ for (const [fg, bg, min] of PAIRS) {
 }
 
 // Brand pairing outside the M3 matrix: the gold "Gratis" / "Level N" badge on
-// the crimson hero. 4.51:1 passes only for large bold text — this test is the
-// reminder that it must never be used for body copy.
-test('tertiary-container on primary is large-text-only', () => {
+// the crimson hero. It clears AA by 0.007 — a margin thin enough that both
+// tokens are effectively locked, so this assertion is a real guard rather than
+// documentation.
+test('tertiary-container on primary meets AA for normal text', () => {
   const r = ratio(readToken('tertiary-container'), readToken('primary'));
-  assert.ok(r >= 3, `gold on crimson is ${r.toFixed(2)}:1, needs 3:1`);
-  assert.ok(r < 4.5, 'gold on crimson now passes 4.5:1 — relax the ≥18px/700 rule in the spec');
+  assert.ok(r >= 4.5, `gold on crimson is ${r.toFixed(4)}:1, needs 4.5:1`);
 });
