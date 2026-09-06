@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+@import './tokens.css';
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--color-surface);
+    color: var(--color-on-surface);
+    font-family: var(--font-body);
+    font-size: var(--text-body-large);
+    line-height: var(--text-body-large--line-height);
+  }
+
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); margin: 0; }
+  p { margin: 0; }
+  img { display: block; max-width: 100%; }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  ::selection { background: var(--color-secondary-container); }
+}
+
+@layer components {
+  /* M3 state layer. Apply `state-layer` to a `relative` interactive element.
+     Uses currentColor so it stays correct on any surface. */
+  .state-layer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: currentColor;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--md-duration-short4) var(--ease-standard);
+    border-radius: inherit;
+  }
+  .state-layer:hover::after { opacity: var(--md-state-hover); }
+  .state-layer:active::after { opacity: var(--md-state-pressed); }
+}
+
+@layer utilities {
+  .elevation-1 { box-shadow: var(--md-elevation-1); }
+  .elevation-2 { box-shadow: var(--md-elevation-2); }
+  .elevation-3 { box-shadow: var(--md-elevation-3); }
+}
+
+@keyframes hf-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hf-step {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes hf-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes hf-draw {
+  from { stroke-dashoffset: 700; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* Motion off, content still visible. Never leave anything at opacity 0 here. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
