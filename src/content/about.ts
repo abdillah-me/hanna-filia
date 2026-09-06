@@ -1,6 +1,14 @@
 import type { Localized, Value } from './types.ts';
 
-export const about = {
+type About = {
+  history: Localized[];
+  vision: Localized;
+  mission: Localized[];
+  values: Value[];
+  facilities: Localized[];
+};
+
+export const about: About = {
   history: [
     {
       id: 'Hanna Filia mulai tahun 2003 dari satu ruko di Nagoya dengan dua kelas dan tiga belas siswa. Waktu itu Batam sedang tumbuh cepat — pabrik-pabrik baru buka, orang datang dari seluruh Indonesia, dan hampir semua pekerjaan bagus mensyaratkan bahasa Inggris.',
@@ -14,12 +22,12 @@ export const about = {
       id: 'Dua dekade kemudian, kami sudah mengajar lebih dari empat ribu siswa, dari anak kelas satu SD sampai insinyur yang mau pindah kerja ke Singapura. Sebagian dari mereka kami antar sampai ke kampus di luar negeri lewat layanan HFOS.',
       en: 'Two decades on, we have taught more than four thousand students, from first-graders to engineers moving to Singapore for work. Some of them we accompanied all the way to a university abroad through our HFOS service.',
     },
-  ] as Localized[],
+  ],
 
   vision: {
     id: 'Menjadi lembaga bahasa Inggris yang membuat orang Batam berani bicara di mana pun mereka berdiri.',
     en: 'To be the English school that gives the people of Batam the confidence to speak, wherever they find themselves.',
-  } as Localized,
+  },
 
   mission: [
     {
@@ -38,7 +46,7 @@ export const about = {
       id: 'Mendampingi siswa sampai tujuannya tercapai, bukan sampai kelasnya habis.',
       en: 'Stay with students until they reach their goal, not until the course runs out.',
     },
-  ] as Localized[],
+  ],
 
   values: [
     {
@@ -69,7 +77,7 @@ export const about = {
         en: 'We think about what happens after the course ends, too.',
       },
     },
-  ] as Value[],
+  ],
 
   facilities: [
     { id: '6 ruang kelas ber-AC', en: '6 air-conditioned classrooms' },
@@ -78,7 +86,7 @@ export const about = {
     { id: 'Ruang tunggu orang tua', en: 'Waiting area for parents' },
     { id: 'WiFi', en: 'WiFi' },
     { id: 'Parkir', en: 'Parking' },
-  ] as Localized[],
+  ],
 };
 
 export const crossProgramBenefits: Localized[] = [

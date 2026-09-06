@@ -10,7 +10,7 @@ import { galleryItems, galleryCategories, activities } from '../src/content/gall
 import { articles } from '../src/content/articles.ts';
 import { about, crossProgramBenefits } from '../src/content/about.ts';
 import { testimonials, hfosTestimonial } from '../src/content/testimonials.ts';
-import { site } from '../src/content/site.ts';
+import { site, stats } from '../src/content/site.ts';
 
 /** Walks any value and yields every object that looks like a Localized. */
 function* localizedValues(node: unknown, path: string): Generator<[string, Record<string, unknown>]> {
@@ -31,7 +31,7 @@ function* localizedValues(node: unknown, path: string): Generator<[string, Recor
 const CONTENT: Record<string, unknown> = {
   programs, teachers, faq, hfosServices, hfosCountries, hfosSteps,
   galleryItems, galleryCategories, activities, articles, about,
-  crossProgramBenefits, testimonials, hfosTestimonial, site,
+  crossProgramBenefits, testimonials, hfosTestimonial, site, stats,
 };
 
 test('every Localized value has non-empty id and en', () => {
@@ -49,8 +49,14 @@ test('every Localized value has non-empty id and en', () => {
   assert.ok(checked > 100, `only ${checked} localized values found — content is missing`);
 });
 
+// Recurses into arrays by index, same as the empty-string walker below, so a
+// future array of strings in the messages JSON is compared element-by-element
+// rather than as one opaque leaf.
 function keyPaths(obj: unknown, prefix = ''): string[] {
-  if (obj === null || typeof obj !== 'object' || Array.isArray(obj)) return [prefix];
+  if (Array.isArray(obj)) {
+    return obj.flatMap((v, i) => keyPaths(v, `${prefix}[${i}]`));
+  }
+  if (obj === null || typeof obj !== 'object') return [prefix];
   return Object.entries(obj as Record<string, unknown>)
     .flatMap(([k, v]) => keyPaths(v, prefix ? `${prefix}.${k}` : k));
 }
