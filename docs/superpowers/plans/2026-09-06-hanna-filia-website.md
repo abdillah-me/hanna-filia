@@ -27,6 +27,8 @@
 - **Contact phone:** `(0778) 426551` · **WhatsApp:** `0812-7000-1234` → `6281270001234` · **Email:** `info@hannafilia.co.id` · **Instagram:** `@hanna_filia` · **Facebook:** `Hanna Filia Batam`
 - **Address:** Komplek Nagoya Newton Blok C No. 15–17, Lubuk Baja Kota, Kec. Lubuk Baja, Kota Batam, Kepulauan Riau 29432
 - **Prices are hidden by default.** A single exported constant `SHOW_PRICES = false` in `src/content/site.ts` controls this. When false, price labels read "Tanya biaya" / "Ask for pricing".
+- **Where a task's "Interfaces / Produces" prose disagrees with its code sample, the code sample wins.** The prose blocks are summaries written ahead of the code and have already drifted three times (`navItems` vs `topNavKeys`; "consumes `LOCALES`" vs a hardcoded array; `Card as` / `Badge tone` props that no call site passes). Downstream tasks were written against the code samples, so implementing the prose adds API surface with no consumer. Report the discrepancy rather than resolving it silently in either direction.
+- **Never rely on `className` ordering to resolve two Tailwind utilities that set the same property.** Tailwind resolves those conflicts by position in the compiled stylesheet, not by order in the attribute — `px-5` in a base string beats `px-1` in a variant string no matter how they are concatenated. Put the conflicting property in exactly one place: either the base or every variant, never both.
 - **Commit after every task.** Conventional commit prefixes (`feat:`, `test:`, `chore:`, `fix:`).
 
 ---
