@@ -15,7 +15,7 @@
 ## Global Constraints
 
 - **Node ≥ 22.18** — required because tests import `.ts` content modules directly and rely on built-in type stripping. Put `"engines": { "node": ">=22.18" }` in `package.json`.
-- **Runtime dependencies are exactly four:** `next`, `react`, `react-dom`, `next-intl`. Adding any other runtime dependency requires stopping and asking. Dev dependencies: `typescript`, `@types/node`, `@types/react`, `@types/react-dom`, `tailwindcss`, `@tailwindcss/postcss`, `eslint`, `eslint-config-next`.
+- **Runtime dependencies are exactly four:** `next`, `react`, `react-dom`, `next-intl`. Adding any other runtime dependency requires stopping and asking. Dev dependencies are exactly ten: `typescript`, `@types/node`, `@types/react`, `@types/react-dom`, `tailwindcss`, `@tailwindcss/postcss`, `eslint`, `eslint-config-next`, `@eslint/eslintrc`, `@eslint/js`. (The last two are imported by `eslint.config.mjs`: `eslint-config-next@15` ships no flat-config export, so `FlatCompat` is required. They must be declared, not relied on as eslint's transitive dependencies.)
 - **TypeScript `strict: true`.** No `any`. No `@ts-ignore`.
 - **Every user-visible string must exist in both `id` and `en`.** No exceptions, no fallback to the other language.
 - **Colors are only ever referenced through M3 token names** (`bg-primary`, `text-on-surface-variant`). A raw hex value anywhere outside `src/styles/tokens.css` is a defect.
