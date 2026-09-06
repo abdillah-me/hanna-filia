@@ -19,7 +19,7 @@
 - **TypeScript `strict: true`.** No `any`. No `@ts-ignore`.
 - **Every user-visible string must exist in both `id` and `en`.** No exceptions, no fallback to the other language.
 - **Colors are only ever referenced through M3 token names** (`bg-primary`, `text-on-surface-variant`). A raw hex value anywhere outside `src/styles/tokens.css` is a defect.
-- **Gold on crimson (`tertiary-container` on `primary`) is 4.51:1** — permitted only at ≥18px AND weight ≥700. Never for body text.
+- **Gold on crimson (`tertiary-container` on `primary`) is 4.5072:1** — this passes WCAG AA for normal-size text, so there is no size or weight restriction. The margin is 0.007, so both tokens are effectively locked; the contrast test asserts `>= 4.5` and fails the build if a change drops below it.
 - **Every animation must be disabled under `prefers-reduced-motion: reduce`, but content must remain visible.** A reveal animation that leaves `opacity: 0` when motion is reduced is a defect.
 - **No `href="#"` anywhere.** Navigation uses `next/link`; actions use `<button>`.
 - **Breakpoint is `768px`** (Tailwind `md`). Bottom nav below it, top app bar at and above it.

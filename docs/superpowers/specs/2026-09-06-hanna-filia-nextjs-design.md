@@ -118,9 +118,14 @@ Semua rasio di bawah sudah diverifikasi (lihat §8.1).
 diganti `on-surface-variant #5C5350` (7.37:1).
 
 **Pasangan brand non-standar yang harus dijaga:** `tertiary-container #F2C230`
-di atas `primary #A21C42` = **4.51:1**. Dipakai untuk badge "Gratis" dan
-"Level N". Lolos hanya untuk teks besar/bold (min 3:1). **Gold di atas crimson
-dilarang untuk teks di bawah 18px atau di bawah weight 700.**
+di atas `primary #A21C42` = **4.5072:1**. Dipakai untuk badge "Gratis" dan
+"Level N". Ini **lolos WCAG AA untuk teks ukuran normal** (min 4.5:1), jadi
+tidak ada pembatasan ukuran atau weight.
+
+Marginnya tipis — 0,007 di atas ambang. Karena itu kedua token ini efektif
+terkunci: mengubah salah satunya sedikit saja bisa menjatuhkannya di bawah 4.5.
+Test kontras menegakkan batas ini secara eksplisit (`>= 4.5`), sehingga
+perubahan yang menjatuhkannya gagal saat build, bukan saat audit.
 
 ### 3.2 Shape
 
