@@ -12,6 +12,13 @@
     "mainNavigation": "Main navigation",
     "switchLanguage": "Switch language"
   },
+  "navShort": {
+    "home": "Home",
+    "programs": "Programs",
+    "studyAbroad": "Abroad",
+    "gallery": "Gallery",
+    "contact": "Contact"
+  },
   "footer": {
     "pages": "Pages",
     "contact": "Contact",

@@ -19,6 +19,7 @@ const ICONS: Record<BottomNavKey, IconName> = {
 
 export function BottomNav() {
   const t = useTranslations('nav');
+  const tShort = useTranslations('navShort');
   const pathname = usePathname();
 
   return (
@@ -67,7 +68,7 @@ export function BottomNav() {
                       : 'font-medium text-on-surface-variant')
                   }
                 >
-                  {t(key)}
+                  {tShort(key)}
                 </span>
               </Link>
             </li>

@@ -11,6 +11,15 @@ const VARIANTS: Record<Variant, string> = {
   text: 'bg-transparent text-primary border-transparent px-1',
 };
 
+// `inline-flex` here is unconditional and cannot be overridden by a
+// consumer's `className` (e.g. `hidden lg:inline-flex`): Tailwind resolves
+// same-property conflicts (`display`) by the compiled stylesheet's rule
+// order, not by attribute order in the rendered `class` list, and BASE's
+// rules are emitted before anything a consumer passes in. A consumer that
+// needs to hide/show a Button responsively must wrap it in an element that
+// carries the `hidden`/`inline-flex` classes instead. This exact hazard
+// produced real bugs in Task 5 (`px-*`) and Task 6 (a CTA visible at every
+// viewport width).
 const BASE =
   'state-layer relative inline-flex items-center justify-center gap-2 ' +
   'border-[1.5px] rounded-sm py-3 min-h-12 ' +

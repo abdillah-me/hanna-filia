@@ -12,6 +12,13 @@
     "mainNavigation": "Navigasi utama",
     "switchLanguage": "Ganti bahasa"
   },
+  "navShort": {
+    "home": "Beranda",
+    "programs": "Program",
+    "studyAbroad": "Luar Negeri",
+    "gallery": "Galeri",
+    "contact": "Kontak"
+  },
   "footer": {
     "pages": "Halaman",
     "contact": "Kontak",

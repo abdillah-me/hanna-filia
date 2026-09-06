@@ -81,7 +81,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${archivo.variable} ${sourceSans.variable} ${newsreader.variable}`}>
-      <body className="bg-surface text-on-surface">
+      <body className="bg-surface text-on-surface pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-0">
         <NextIntlClientProvider>
           <SkipLink />
           <TopAppBar />
@@ -89,7 +89,7 @@ export default async function LocaleLayout({
               skip link would only scroll here — keyboard focus would land on
               <body> and a second Tab would restart at the top of the page
               instead of continuing into the content that was skipped to. */}
-          <div id="main" tabIndex={-1} className="pb-20 md:pb-0 focus:outline-none">
+          <div id="main" tabIndex={-1} className="focus:outline-none">
             {children}
           </div>
           <Footer />

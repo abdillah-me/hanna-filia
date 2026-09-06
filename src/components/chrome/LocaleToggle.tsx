@@ -26,7 +26,7 @@ export function LocaleToggle() {
             aria-current={active ? 'true' : undefined}
             onClick={() => router.replace(pathname, { locale: code })}
             className={
-              'state-layer relative min-h-12 px-3 py-1.5 font-heading text-title-small uppercase ' +
+              'state-layer relative min-h-12 min-w-12 px-3 py-1.5 font-heading text-title-small uppercase ' +
               'cursor-pointer transition-colors duration-200 ease-standard ' +
               (active ? 'bg-primary text-on-primary' : 'bg-transparent text-on-surface')
             }
