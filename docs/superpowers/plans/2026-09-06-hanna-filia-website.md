@@ -17,7 +17,8 @@
 - **Node ≥ 22.18** — required because tests import `.ts` content modules directly and rely on built-in type stripping. Put `"engines": { "node": ">=22.18" }` in `package.json`.
 - **Runtime dependencies are exactly four:** `next`, `react`, `react-dom`, `next-intl`. Adding any other runtime dependency requires stopping and asking. Dev dependencies are exactly ten: `typescript`, `@types/node`, `@types/react`, `@types/react-dom`, `tailwindcss`, `@tailwindcss/postcss`, `eslint`, `eslint-config-next`, `@eslint/eslintrc`, `@eslint/js`. (The last two are imported by `eslint.config.mjs`: `eslint-config-next@15` ships no flat-config export, so `FlatCompat` is required. They must be declared, not relied on as eslint's transitive dependencies.)
 - **TypeScript `strict: true`.** No `any`. No `@ts-ignore`.
-- **Every user-visible string must exist in both `id` and `en`.** No exceptions, no fallback to the other language.
+- **Every user-visible string must exist in both `id` and `en`**, with exactly one documented exception: `site.addressLines`. A postal address is an identifier, not prose — rendering "Kec. Lubuk Baja" as "Lubuk Baja District" produces an address that fails when typed into Maps or written on an envelope. It stays a plain `string[]` in both locales, and `src/content/site.ts` carries a comment saying why. No other exception is permitted, and no fallback to the other language is permitted anywhere.
+- **Bilingual content must be protected by direct type annotations, never `as` assertions.** `const x: Localized[] = [...]` rejects a missing `en` at compile time; `[...] as Localized[]` silently accepts it, because an assertion only requires the two types to be comparable in one direction. Every `Localized` literal in `src/content/**` must use a direct annotation.
 - **Colors are only ever referenced through M3 token names** (`bg-primary`, `text-on-surface-variant`). A raw hex value anywhere outside `src/styles/tokens.css` is a defect.
 - **Gold on crimson (`tertiary-container` on `primary`) is 4.5072:1** — this passes WCAG AA for normal-size text, so there is no size or weight restriction. The margin is 0.007, so both tokens are effectively locked; the contrast test asserts `>= 4.5` and fails the build if a change drops below it.
 - **Every animation must be disabled under `prefers-reduced-motion: reduce`, but content must remain visible.** A reveal animation that leaves `opacity: 0` when motion is reduced is a defect.
@@ -547,7 +548,7 @@ git commit -m "feat: scaffold Next.js project with Material 3 token system"
   - `const articles: Article[]` with `Article = { imageKey, category, title, date }`
   - `const about: { history: Localized[]; vision: Localized; mission: Localized[]; values: Value[]; facilities: Localized[] }` with `Value = { title: Localized; body: Localized }`
   - `const testimonials: Testimonial[]`, `const hfosTestimonial: Testimonial`, with `Testimonial = { quote, name, role }`
-  - `const site: { phone, whatsapp, whatsappE164, email, instagram, facebook, address: Localized, hours: Hours[] }`, `const SHOW_PRICES: boolean`, `const navItems`, `const bottomNavItems`, `const footerLinks`
+  - `const site: { phone, whatsapp, whatsappE164, email, instagram, facebook, addressLines: string[], hours: Hours[], foundation: Localized, motto: string, accreditationNote: Localized }`, `const SHOW_PRICES: boolean`, `const stats`, `const ROUTES`, `type RouteKey`, `const topNavKeys: RouteKey[]`, `const bottomNavKeys: RouteKey[]`, `const footerKeys: RouteKey[]`
 
 - [ ] **Step 1: Write the type module**
 
