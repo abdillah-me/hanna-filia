@@ -7,6 +7,10 @@ import { Archivo, Source_Sans_3, Newsreader } from 'next/font/google';
 
 import { routing } from '@/i18n/routing';
 import type { Locale } from '@/content/types';
+import { SkipLink } from '@/components/chrome/SkipLink';
+import { TopAppBar } from '@/components/chrome/TopAppBar';
+import { Footer } from '@/components/chrome/Footer';
+import { BottomNav } from '@/components/chrome/BottomNav';
 import '@/styles/globals.css';
 
 const archivo = Archivo({
@@ -78,7 +82,19 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${archivo.variable} ${sourceSans.variable} ${newsreader.variable}`}>
       <body className="bg-surface text-on-surface">
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <SkipLink />
+          <TopAppBar />
+          {/* tabIndex={-1}: a plain div isn't focusable, so without this the
+              skip link would only scroll here — keyboard focus would land on
+              <body> and a second Tab would restart at the top of the page
+              instead of continuing into the content that was skipped to. */}
+          <div id="main" tabIndex={-1} className="pb-20 md:pb-0 focus:outline-none">
+            {children}
+          </div>
+          <Footer />
+          <BottomNav />
+        </NextIntlClientProvider>
       </body>
     </html>
   );
