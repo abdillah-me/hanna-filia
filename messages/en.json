@@ -1,0 +1,146 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "programs": "Programs",
+    "studyAbroad": "Study Abroad",
+    "teachers": "Teachers",
+    "gallery": "Gallery",
+    "articles": "Articles",
+    "contact": "Contact",
+    "skipToContent": "Skip to main content",
+    "mainNavigation": "Main navigation",
+    "switchLanguage": "Switch language"
+  },
+  "footer": {
+    "pages": "Pages",
+    "contact": "Contact",
+    "orgName": "Hanna Filia English Course",
+    "rights": "© 2026 Yayasan Hanna Filia Internasional"
+  },
+  "cta": {
+    "trial": "Book a free trial class",
+    "seePrograms": "See programs",
+    "allPrograms": "All programs",
+    "learnHfos": "About HFOS",
+    "openPage": "Open the page",
+    "askPrice": "Ask for pricing",
+    "scheduleConsult": "Book a consultation",
+    "sendViaWhatsapp": "Send via WhatsApp"
+  },
+  "home": {
+    "heroTitle": "English for people who intend to go further",
+    "heroBody": "An English course in Nagoya, Batam. Small classes, certified teachers, from age six through to university preparation abroad.",
+    "levelLadder": "The level ladder",
+    "studyAbroadRow": "Study abroad",
+    "marquee": "Small classes · Maximum 8 students per class · Certified teachers · Nagoya, Batam · Since 2003 · Learning English is Fun and Easy · ",
+    "pickTitle": "Which class fits?",
+    "pickBody": "Pick whichever is closest to your situation.",
+    "pickRecommendation": "Recommended",
+    "levelsTitle": "Five levels, one path",
+    "hfosTitle": "Once the language is ready, we help you get there",
+    "hfosBody": "Hanna Filia Overseas Service guides you through choosing a university, translating documents, arranging a student pass, and finding somewhere to live. Malaysia, Singapore, Australia, Canada, and New Zealand.",
+    "hfosMapAlt": "Diagram of study routes from Batam to Malaysia, Singapore, Australia, Canada, and New Zealand",
+    "testimonialsTitle": "What they say",
+    "trialBadge": "Free",
+    "trialTitle": "Try one class first, free",
+    "trialBody": "Come to Nagoya Newton, sit in on a session, see the class for yourself. No cost, no obligation.",
+    "moreLinks": "More pages"
+  },
+  "pick": {
+    "kids": "My child is 6–12",
+    "teens": "My child is in secondary school",
+    "conversation": "I want to speak fluently",
+    "toefl": "I need a TOEFL/IELTS score",
+    "business": "For work",
+    "hfos": "I want to study abroad",
+    "hfosName": "Study Abroad",
+    "hfosMeta": "Hanna Filia Overseas Service · from choosing a university to departure"
+  },
+  "about": {
+    "eyebrow": "About us",
+    "title": "Two decades teaching Batam to speak",
+    "vision": "Vision",
+    "mission": "Mission",
+    "values": "Values",
+    "facilities": "Facilities",
+    "buildingPhoto": "The Hanna Filia building at Nagoya Newton"
+  },
+  "programs": {
+    "eyebrow": "Courses",
+    "title": "Five levels, starting from the first word",
+    "body": "A free placement test decides where you start. One free trial session before you enrol.",
+    "crossProgram": "Included in every program",
+    "studyAbroadName": "Study Abroad",
+    "studyAbroadMeta": "Hanna Filia Overseas Service",
+    "studyAbroadBody": "Choosing a university, translating documents, visas and student passes, and somewhere to live when you arrive.",
+    "consultation": "Consultation",
+    "level": "Level",
+    "forWhom": "For",
+    "duration": "Duration",
+    "meetings": "Sessions",
+    "fee": "Fee",
+    "syllabus": "What you cover",
+    "afterwards": "By the end",
+    "trySessionTitle": "Try one session first",
+    "trySessionBody": "Free placement test, no obligation to continue."
+  },
+  "hfos": {
+    "eyebrow": "HFOS",
+    "title": "Hanna Filia Overseas Service",
+    "lead": "Getting into a university abroad is not one step but a dozen. We have been through them with dozens of Batam families.",
+    "services": "Services",
+    "countries": "Destinations",
+    "process": "How it works",
+    "step": "Step"
+  },
+  "teachers": {
+    "eyebrow": "Teachers",
+    "title": "The six people at the front of the room",
+    "portraitPending": "Photograph to follow"
+  },
+  "gallery": {
+    "eyebrow": "Gallery & events",
+    "title": "Classes and events",
+    "filterLabel": "Filter the gallery by category",
+    "activities": "Regular events",
+    "placeholderNote": "The photographs on this page are placeholders and will be replaced with Hanna Filia's own."
+  },
+  "articles": {
+    "eyebrow": "Articles",
+    "title": "Notes from the classroom",
+    "body": "This section is planned for phase two. The three titles below show the shape of the page."
+  },
+  "contact": {
+    "eyebrow": "Contact & enrolment",
+    "title": "Come to Nagoya Newton",
+    "address": "Address",
+    "hours": "Opening hours",
+    "formTitle": "Enrolment form",
+    "phone": "Phone",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "instagram": "Instagram",
+    "faqTitle": "Frequently asked questions",
+    "mapLabel": "Map showing Hanna Filia at Nagoya Newton, Batam"
+  },
+  "form": {
+    "name": "Full name",
+    "namePlaceholder": "Full name",
+    "whatsapp": "WhatsApp number",
+    "whatsappPlaceholder": "08xx xxxx xxxx",
+    "age": "Student's age",
+    "program": "Program of interest",
+    "programPlaceholder": "Choose a program",
+    "message": "Message (optional)",
+    "errorNameRequired": "Please enter your name.",
+    "errorWhatsappRequired": "Please enter a WhatsApp number.",
+    "errorWhatsappInvalid": "That WhatsApp number is not valid. Example: 0812 7000 1234.",
+    "errorProgramRequired": "Please choose a program.",
+    "opening": "Hello Hanna Filia, I would like to book a free trial class.",
+    "hint": "This opens WhatsApp with the message filled in. You can still edit it before sending."
+  },
+  "common": {
+    "photoPending": "Placeholder photo"
+  }
+}

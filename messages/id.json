@@ -1,0 +1,146 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "programs": "Program",
+    "studyAbroad": "Studi ke Luar Negeri",
+    "teachers": "Pengajar",
+    "gallery": "Galeri",
+    "articles": "Artikel",
+    "contact": "Kontak",
+    "skipToContent": "Lompat ke konten utama",
+    "mainNavigation": "Navigasi utama",
+    "switchLanguage": "Ganti bahasa"
+  },
+  "footer": {
+    "pages": "Halaman",
+    "contact": "Kontak",
+    "orgName": "Hanna Filia English Course",
+    "rights": "© 2026 Yayasan Hanna Filia Internasional"
+  },
+  "cta": {
+    "trial": "Daftar kelas percobaan",
+    "seePrograms": "Lihat program",
+    "allPrograms": "Semua program",
+    "learnHfos": "Pelajari HFOS",
+    "openPage": "Buka halamannya",
+    "askPrice": "Tanya biaya",
+    "scheduleConsult": "Jadwalkan konsultasi",
+    "sendViaWhatsapp": "Kirim lewat WhatsApp"
+  },
+  "home": {
+    "heroTitle": "Bahasa Inggris untuk yang mau melangkah lebih jauh",
+    "heroBody": "Kursus bahasa Inggris di Nagoya, Batam. Kelas kecil, pengajar bersertifikat, dari usia 6 tahun sampai persiapan kuliah di luar negeri.",
+    "levelLadder": "Tangga level",
+    "studyAbroadRow": "Studi ke luar negeri",
+    "marquee": "Kelas kecil · Maksimal 8 siswa per kelas · Pengajar bersertifikat · Nagoya, Batam · Sejak 2003 · Learning English is Fun and Easy · ",
+    "pickTitle": "Kelas mana yang cocok?",
+    "pickBody": "Pilih yang paling mendekati keadaan Anda.",
+    "pickRecommendation": "Rekomendasi",
+    "levelsTitle": "Lima level, satu jalur",
+    "hfosTitle": "Setelah bahasanya siap, kami bantu urusan berangkatnya",
+    "hfosBody": "Hanna Filia Overseas Service mendampingi pemilihan kampus, terjemahan dokumen, pengurusan student pass, sampai mencari tempat tinggal di negara tujuan. Malaysia, Singapura, Australia, Kanada, dan Selandia Baru.",
+    "hfosMapAlt": "Diagram rute pendampingan dari Batam ke Malaysia, Singapura, Australia, Kanada, dan Selandia Baru",
+    "testimonialsTitle": "Kata mereka",
+    "trialBadge": "Gratis",
+    "trialTitle": "Coba satu kelas dulu, gratis",
+    "trialBody": "Datang ke Nagoya Newton, ikut satu sesi, lihat sendiri suasana kelasnya. Tanpa biaya, tanpa kewajiban lanjut.",
+    "moreLinks": "Halaman lain"
+  },
+  "pick": {
+    "kids": "Anak saya usia 6–12 tahun",
+    "teens": "Anak saya SMP/SMA",
+    "conversation": "Saya mau lancar ngobrol",
+    "toefl": "Saya butuh skor TOEFL/IELTS",
+    "business": "Untuk keperluan kerja",
+    "hfos": "Saya mau kuliah di luar negeri",
+    "hfosName": "Studi ke Luar Negeri",
+    "hfosMeta": "Hanna Filia Overseas Service · konsultasi kampus sampai keberangkatan"
+  },
+  "about": {
+    "eyebrow": "Tentang kami",
+    "title": "Dua dekade mengajar orang Batam bicara",
+    "vision": "Visi",
+    "mission": "Misi",
+    "values": "Nilai",
+    "facilities": "Fasilitas",
+    "buildingPhoto": "Gedung Hanna Filia di Nagoya Newton"
+  },
+  "programs": {
+    "eyebrow": "Program kursus",
+    "title": "Lima level, berurutan dari kata pertama",
+    "body": "Tes penempatan gratis menentukan Anda mulai dari mana. Satu sesi percobaan gratis sebelum mendaftar.",
+    "crossProgram": "Berlaku untuk semua program",
+    "studyAbroadName": "Studi ke Luar Negeri",
+    "studyAbroadMeta": "Hanna Filia Overseas Service",
+    "studyAbroadBody": "Pemilihan kampus, terjemahan dokumen, visa dan student pass, sampai tempat tinggal di negara tujuan.",
+    "consultation": "Konsultasi",
+    "level": "Level",
+    "forWhom": "Untuk",
+    "duration": "Durasi",
+    "meetings": "Pertemuan",
+    "fee": "Biaya",
+    "syllabus": "Isi materi",
+    "afterwards": "Setelah selesai",
+    "trySessionTitle": "Coba satu sesi dulu",
+    "trySessionBody": "Tes penempatan gratis, tanpa kewajiban lanjut."
+  },
+  "hfos": {
+    "eyebrow": "HFOS",
+    "title": "Hanna Filia Overseas Service",
+    "lead": "Mengurus kuliah di luar negeri itu bukan satu langkah, tapi belasan. Kami sudah melewatinya bersama puluhan keluarga Batam.",
+    "services": "Layanan",
+    "countries": "Negara tujuan",
+    "process": "Alur pendampingan",
+    "step": "Langkah"
+  },
+  "teachers": {
+    "eyebrow": "Pengajar",
+    "title": "Enam orang yang berdiri di depan kelas",
+    "portraitPending": "Foto asli menyusul"
+  },
+  "gallery": {
+    "eyebrow": "Galeri & kegiatan",
+    "title": "Suasana kelas dan kegiatan",
+    "filterLabel": "Saring galeri berdasarkan kategori",
+    "activities": "Kegiatan rutin",
+    "placeholderNote": "Foto di halaman ini masih sementara dan akan diganti dengan dokumentasi Hanna Filia."
+  },
+  "articles": {
+    "eyebrow": "Artikel",
+    "title": "Catatan dari ruang kelas",
+    "body": "Bagian ini disiapkan untuk fase dua. Tiga judul di bawah menunjukkan bentuk halamannya."
+  },
+  "contact": {
+    "eyebrow": "Kontak & pendaftaran",
+    "title": "Datang ke Nagoya Newton",
+    "address": "Alamat",
+    "hours": "Jam operasional",
+    "formTitle": "Form pendaftaran",
+    "phone": "Telepon",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "instagram": "Instagram",
+    "faqTitle": "Pertanyaan yang sering masuk",
+    "mapLabel": "Peta lokasi Hanna Filia di Nagoya Newton, Batam"
+  },
+  "form": {
+    "name": "Nama lengkap",
+    "namePlaceholder": "Nama lengkap",
+    "whatsapp": "Nomor WhatsApp",
+    "whatsappPlaceholder": "08xx xxxx xxxx",
+    "age": "Usia calon siswa",
+    "program": "Program yang diminati",
+    "programPlaceholder": "Pilih program",
+    "message": "Pesan (opsional)",
+    "errorNameRequired": "Nama wajib diisi.",
+    "errorWhatsappRequired": "Nomor WhatsApp wajib diisi.",
+    "errorWhatsappInvalid": "Nomor WhatsApp tidak valid. Contoh: 0812 7000 1234.",
+    "errorProgramRequired": "Pilih salah satu program.",
+    "opening": "Halo Hanna Filia, saya ingin mendaftar kelas percobaan.",
+    "hint": "Tombol ini membuka WhatsApp dengan pesan yang sudah terisi. Anda masih bisa mengubahnya sebelum mengirim."
+  },
+  "common": {
+    "photoPending": "Foto sementara"
+  }
+}
