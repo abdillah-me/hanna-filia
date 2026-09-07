@@ -11,6 +11,7 @@ import { articles } from '../src/content/articles.ts';
 import { about, crossProgramBenefits } from '../src/content/about.ts';
 import { testimonials, hfosTestimonial } from '../src/content/testimonials.ts';
 import { site, stats } from '../src/content/site.ts';
+import { images } from '../src/content/images.ts';
 
 /** Walks any value and yields every object that looks like a Localized. */
 function* localizedValues(node: unknown, path: string): Generator<[string, Record<string, unknown>]> {
@@ -104,4 +105,28 @@ test('gallery categories cover every gallery item', () => {
 
 test('WhatsApp number is stored in E.164 form without punctuation', () => {
   assert.match(site.whatsappE164, /^62\d{9,13}$/);
+});
+
+test('every imageKey referenced by content exists in the manifest', () => {
+  const keys = new Set(Object.keys(images));
+  const referenced = [
+    ...programs.map((p) => p.imageKey),
+    ...teachers.map((x) => x.imageKey),
+    ...galleryItems.map((g) => g.imageKey),
+    ...articles.map((a) => a.imageKey),
+    'building-front',
+    'hfos-hero',
+  ];
+  for (const key of referenced) {
+    assert.ok(keys.has(key), `imageKey "${key}" is referenced but missing from images.ts`);
+  }
+});
+
+test('every non-teacher image has a src and a ratio', () => {
+  for (const [key, entry] of Object.entries(images)) {
+    assert.match(entry.ratio, /^\d+\/\d+$/, `${key} has an invalid ratio "${entry.ratio}"`);
+    if (!key.startsWith('teacher-')) {
+      assert.ok(entry.src.length > 0, `${key} has no src`);
+    }
+  }
 });
