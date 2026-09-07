@@ -1,7 +1,7 @@
 'use client';
 
 import {
-  useEffect, useRef, useState,
+  useCallback, useEffect, useRef, useState,
   type CSSProperties, type ReactNode, type RefObject,
 } from 'react';
 
@@ -56,9 +56,9 @@ export function Reveal({
   const [ref, inView] = useInView<HTMLElement>();
   // A single callback ref, contravariant over every concrete element type
   // below (div/section/li all extend HTMLElement) — no cast required.
-  const setRef = (node: HTMLElement | null) => {
+  const setRef = useCallback((node: HTMLElement | null) => {
     ref.current = node;
-  };
+  }, [ref]);
 
   const style: CSSProperties = {
     opacity: inView ? 1 : 0,

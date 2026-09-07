@@ -82,6 +82,10 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${archivo.variable} ${sourceSans.variable} ${newsreader.variable}`}>
       <body className="bg-surface text-on-surface pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-0">
+        {/* Reveal hides its children until client JS reveals them, so without scripting that content would never appear. */}
+        <noscript>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
         <NextIntlClientProvider>
           <SkipLink />
           <TopAppBar />
