@@ -1,6 +1,15 @@
 @import 'tailwindcss';
 @import './tokens.css';
 
+:root {
+  /* Total height of the fixed bottom navigation bar: the 80px (5rem) row inside
+     it plus its 1.5px top border. The body reserves this much space so page
+     content — including the footer's bottom edge — clears the bar. Both places
+     must read this one value; writing the number twice is what put the footer
+     1.5px under the bar. */
+  --hf-bottom-nav-h: calc(5rem + 1.5px);
+}
+
 @layer base {
   *, *::before, *::after { box-sizing: border-box; }
 

@@ -25,7 +25,7 @@ export function BottomNav() {
   return (
     <nav
       aria-label={t('mainNavigation')}
-      className="fixed bottom-0 left-0 right-0 z-30 border-t-[1.5px] border-outline-variant
+      className="fixed bottom-0 left-0 right-0 z-30 min-h-[var(--hf-bottom-nav-h)] border-t-[1.5px] border-outline-variant
                  bg-surface-container elevation-2 md:hidden
                  pb-[env(safe-area-inset-bottom)]"
     >
