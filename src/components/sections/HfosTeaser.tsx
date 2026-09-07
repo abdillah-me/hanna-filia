@@ -20,11 +20,7 @@ export function HfosTeaser() {
         </div>
         <div>
           <p className="mb-5 text-body-large text-secondary-container">{th('hfosBody')}</p>
-          <Button
-            href={ROUTES.studyAbroad}
-            variant="outlined"
-            className="border-on-primary text-on-primary"
-          >
+          <Button href={ROUTES.studyAbroad} variant="outlinedInverse">
             {tc('learnHfos')}
           </Button>
         </div>

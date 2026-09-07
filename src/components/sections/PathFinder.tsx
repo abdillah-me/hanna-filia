@@ -32,12 +32,16 @@ export function PathFinder() {
   const result = choice
     ? choice.target === 'hfos'
       ? { name: tp('hfosName'), meta: tp('hfosMeta'), href: ROUTES.studyAbroad }
-      : {
-          name: t(program!.name, locale),
-          meta: `${t(program!.audience, locale)} · ${t(program!.duration, locale)}, ${t(program!.schedule, locale)}, ${t(program!.minutes, locale)}`,
-          href: `${ROUTES.programs}/${program!.slug}`,
-        }
+      : program
+        ? {
+            name: t(program.name, locale),
+            meta: `${t(program.audience, locale)} · ${t(program.duration, locale)}, ${t(program.schedule, locale)}, ${t(program.minutes, locale)}`,
+            href: `${ROUTES.programs}/${program.slug}`,
+          }
+        : null
     : null;
+
+  const resultId = 'pathfinder-result';
 
   return (
     <section className="border-b-[1.5px] border-on-surface bg-secondary-container">
@@ -53,6 +57,7 @@ export function PathFinder() {
               key={c.key}
               type="button"
               aria-pressed={picked === i}
+              aria-controls={resultId}
               onClick={() => setPicked(i)}
               className={
                 'state-layer relative rounded-sm border-[1.5px] px-4 py-4 text-left ' +
@@ -68,24 +73,30 @@ export function PathFinder() {
           ))}
         </div>
 
-        {result ? (
-          <div
-            className="mt-5 flex flex-wrap items-center justify-between gap-6 border-[1.5px]
-                       border-on-surface bg-surface p-6"
-            style={{ animation: 'hf-rise var(--md-duration-medium2) var(--ease-emphasized) both' }}
-          >
-            <div>
-              <p className="font-heading text-label-medium text-on-surface-variant">
-                {th('pickRecommendation')}
-              </p>
-              <p className="mt-1.5 font-heading text-headline-small text-on-surface">{result.name}</p>
-              <p className="mt-1.5 text-body-small text-on-surface-variant">{result.meta}</p>
+        {/* Always mounted (even empty) so aria-live reliably announces the
+            recommendation when it appears — a live region that mounts only
+            once content exists is not guaranteed to be observed by screen
+            readers. */}
+        <div id={resultId} aria-live="polite">
+          {result ? (
+            <div
+              className="mt-5 flex flex-wrap items-center justify-between gap-6 border-[1.5px]
+                         border-on-surface bg-surface p-6"
+              style={{ animation: 'hf-rise var(--md-duration-medium2) var(--ease-emphasized) both' }}
+            >
+              <div>
+                <p className="font-heading text-label-medium text-on-surface-variant">
+                  {th('pickRecommendation')}
+                </p>
+                <p className="mt-1.5 font-heading text-headline-small text-on-surface">{result.name}</p>
+                <p className="mt-1.5 text-body-small text-on-surface-variant">{result.meta}</p>
+              </div>
+              <Button href={result.href} variant="outlined">
+                {tc('openPage')}
+              </Button>
             </div>
-            <Button href={result.href} variant="outlined">
-              {tc('openPage')}
-            </Button>
-          </div>
-        ) : null}
+          ) : null}
+        </div>
       </div>
     </section>
   );

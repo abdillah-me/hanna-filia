@@ -6,14 +6,14 @@ import { t } from '@/content/types';
 import type { Locale } from '@/content/types';
 import { CountUp, Reveal } from '@/components/Reveal';
 
-/** 4.200+ style thousands separator, matching Indonesian convention. */
-const idThousands = (n: number) => {
-  const s = String(Math.round(n));
-  return s.length > 3 ? `${s.slice(0, -3)}.${s.slice(-3)}` : s;
-};
-
 export function StatsBar() {
   const locale = useLocale() as Locale;
+  // maximumFractionDigits: 0 — CountUp animates through fractional values
+  // before settling, and the default formatter would show them.
+  const numberFormat = new Intl.NumberFormat(
+    locale === 'id' ? 'id-ID' : 'en-US',
+    { maximumFractionDigits: 0 },
+  );
 
   return (
     <section className="border-b-[1.5px] border-on-surface bg-surface">
@@ -35,7 +35,9 @@ export function StatsBar() {
               ) : (
                 <CountUp
                   to={s.countTo}
-                  format={(n) => (s.countTo === 4200 ? `${idThousands(n)}+` : idThousands(n))}
+                  format={(n) => (
+                    s.countTo === 4200 ? `${numberFormat.format(n)}+` : numberFormat.format(n)
+                  )}
                 />
               )}
             </div>

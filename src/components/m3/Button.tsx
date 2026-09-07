@@ -2,12 +2,19 @@ import type { MouseEventHandler, ReactNode } from 'react';
 import { Link } from '@/i18n/navigation';
 import { Icon, type IconName } from '@/components/Icon';
 
-type Variant = 'filled' | 'tonal' | 'outlined' | 'text';
+type Variant = 'filled' | 'tonal' | 'outlined' | 'outlinedInverse' | 'text';
 
 const VARIANTS: Record<Variant, string> = {
   filled: 'bg-primary text-on-primary border-primary px-5',
   tonal: 'bg-tertiary-container text-on-tertiary-container border-on-surface px-5',
   outlined: 'bg-transparent text-on-surface border-on-surface px-5',
+  // Outlined button on a primary-coloured (crimson) background — e.g. hero
+  // CTAs. A consumer must never pass on-primary/on-surface colour classes
+  // in `className` to simulate this: `text`/`border` are single CSS
+  // properties, and Tailwind resolves same-property clashes by rule order
+  // in the compiled stylesheet, not by className order, so a consumer
+  // class can silently lose to this variant's own colour class.
+  outlinedInverse: 'bg-transparent text-on-primary border-on-primary px-5',
   text: 'bg-transparent text-primary border-transparent px-1',
 };
 

@@ -38,7 +38,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
             </p>
             <div className="flex flex-wrap items-center gap-3.5">
               <Button href={ROUTES.contact} variant="tonal">{tc('trial')}</Button>
-              <Button href={ROUTES.programs} variant="outlined" className="border-on-primary text-on-primary">
+              <Button href={ROUTES.programs} variant="outlinedInverse">
                 {tc('seePrograms')}
               </Button>
             </div>
