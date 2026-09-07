@@ -29,7 +29,7 @@ export function TopAppBar() {
         (scrolled ? 'elevation-2' : '')
       }
     >
-      <div className="mx-auto flex max-w-[1140px] items-center gap-7 px-6 py-3">
+      <div className="mx-auto flex max-w-[1140px] items-center gap-5 px-6 py-3 lg:gap-7">
         <Link href={ROUTES.home} className="flex-none">
           <Image src="/logo.png" alt="Hanna Filia" width={656} height={304} priority
                  className="h-8 w-auto md:h-9" />
