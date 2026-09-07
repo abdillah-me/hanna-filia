@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import { images, type ImageKey } from '@/content/images';
-import { t } from '@/content/types';
-import type { Locale } from '@/content/types';
+import { t, type Locale } from '@/content/types';
 
 /**
  * Renders the photograph registered under `imageKey`. When the manifest has no

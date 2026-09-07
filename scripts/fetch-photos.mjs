@@ -25,7 +25,7 @@ const PHOTOS = {
   'gallery-toefl-simulation': '7Wf684C9nwU',
   'gallery-business-inhouse': 'KdeqA3aTnBY',
   'gallery-english-camp': 'adQAb-L-YkE',
-  'gallery-graduation': 'm7yOJx0ALME',
+  'gallery-graduation': 'iggWDxHTAUQ',
   'gallery-speaking-day': '_2NZCoWRJSo',
   'gallery-study-tour': 'z8XO8BfqpYc',
   'article-1': '93W0xn4961g',
@@ -57,6 +57,10 @@ async function main() {
         redirect: 'follow',
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const contentType = res.headers.get('content-type') ?? '';
+      if (!contentType.startsWith('image/')) {
+        throw new Error(`unexpected content-type "${contentType}"`);
+      }
       const buf = Buffer.from(await res.arrayBuffer());
       await writeFile(file, buf);
       downloaded++;

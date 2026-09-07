@@ -32,7 +32,7 @@ function* localizedValues(node: unknown, path: string): Generator<[string, Recor
 const CONTENT: Record<string, unknown> = {
   programs, teachers, faq, hfosServices, hfosCountries, hfosSteps,
   galleryItems, galleryCategories, activities, articles, about,
-  crossProgramBenefits, testimonials, hfosTestimonial, site, stats,
+  crossProgramBenefits, testimonials, hfosTestimonial, site, stats, images,
 };
 
 test('every Localized value has non-empty id and en', () => {
