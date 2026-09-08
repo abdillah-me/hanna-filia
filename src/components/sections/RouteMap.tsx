@@ -51,7 +51,7 @@ export function RouteMap({ locale }: { locale: Locale }) {
         ))}
       </g>
 
-      <g className="fill-secondary-container">
+      <g aria-hidden="true" className="fill-secondary-container">
         {ROUTES_OUT.map((r) => (
           <circle key={r.countryEn} cx={r.x} cy={r.y} r="5" />
         ))}
@@ -59,7 +59,7 @@ export function RouteMap({ locale }: { locale: Locale }) {
 
       <circle cx="60" cy="240" r="9" className="fill-tertiary-container stroke-on-primary" strokeWidth="1.5" />
 
-      <g fontFamily="var(--font-heading)" fontSize="15" fontWeight="600" className="fill-on-primary">
+      <g aria-hidden="true" fontFamily="var(--font-heading)" fontSize="15" fontWeight="600" className="fill-on-primary">
         {ROUTES_OUT.map((r) => (
           <text key={r.countryEn} x={r.x + 12} y={r.y + 5}>
             {countryLabel(r.countryEn, locale)}

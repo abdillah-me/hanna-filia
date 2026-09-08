@@ -93,11 +93,7 @@ export default async function StudyAbroadPage({ params }: { params: Promise<{ lo
         </ol>
       </Section>
 
-      <Section
-        tone="primary"
-        bordered={false}
-        innerClassName="flex flex-wrap items-center justify-between gap-8"
-      >
+      <Section bordered={false} innerClassName="flex flex-wrap items-center justify-between gap-8">
         <blockquote className="max-w-[52ch] bg-secondary-container p-6">
           <p className="font-quote text-title-large italic leading-[1.5] text-on-secondary-container">
             {t(hfosTestimonial.quote, locale)}
@@ -107,7 +103,7 @@ export default async function StudyAbroadPage({ params }: { params: Promise<{ lo
             {t(hfosTestimonial.role, locale)}
           </footer>
         </blockquote>
-        <Button href={ROUTES.contact} variant="outlinedInverse">
+        <Button href={ROUTES.contact} variant="tonal">
           {tc('scheduleConsult')}
         </Button>
       </Section>
