@@ -40,6 +40,7 @@ const PAIRS: Array<[string, string, number]> = [
   ['on-surface-variant', 'surface-container-highest', 4.5],
   ['on-surface', 'secondary-container', 4.5],
   ['on-surface-variant', 'secondary-container', 4.5],
+  ['secondary-container', 'primary', 4.5],
   ['inverse-on-surface', 'inverse-surface', 4.5],
   ['primary', 'surface', 3],
   ['outline', 'surface', 3],

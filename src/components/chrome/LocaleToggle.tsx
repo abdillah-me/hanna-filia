@@ -2,6 +2,7 @@
 
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/navigation';
+import { LOCALES } from '@/content/types';
 import type { Locale } from '@/content/types';
 
 export function LocaleToggle() {
@@ -16,7 +17,7 @@ export function LocaleToggle() {
       aria-label={t('switchLanguage')}
       className="inline-flex overflow-hidden rounded-full border-[1.5px] border-on-surface"
     >
-      {(['id', 'en'] as const).map((code) => {
+      {LOCALES.map((code) => {
         const active = locale === code;
         return (
           <button

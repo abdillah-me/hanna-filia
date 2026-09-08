@@ -40,7 +40,9 @@ export function LevelLadder() {
                 className="block h-3 border-[1.5px] border-secondary-container origin-left"
                 style={{
                   width: `${14 + i * 8}px`,
-                  background: on ? 'var(--color-tertiary-container)' : 'rgb(245 214 174 / 0.22)',
+                  background: on
+                    ? 'var(--color-tertiary-container)'
+                    : 'color-mix(in srgb, var(--color-secondary-container) 22%, transparent)',
                   animation: `hf-step var(--md-duration-medium4) var(--ease-emphasized) ${200 + i * 80}ms both`,
                 }}
               />

@@ -70,8 +70,7 @@
     "vision": "Visi",
     "mission": "Misi",
     "values": "Nilai",
-    "facilities": "Fasilitas",
-    "buildingPhoto": "Gedung Hanna Filia di Nagoya Newton"
+    "facilities": "Fasilitas"
   },
   "programs": {
     "eyebrow": "Program kursus",
@@ -149,7 +148,8 @@
     "hint": "Tombol ini membuka WhatsApp dengan pesan yang sudah terisi. Anda masih bisa mengubahnya sebelum mengirim.",
     "popupBlockedFallback": "WhatsApp tidak terbuka otomatis. Ketuk di sini untuk membukanya."
   },
-  "common": {
-    "photoPending": "Foto sementara"
+  "notFound": {
+    "title": "Halaman tidak ditemukan",
+    "body": "Halaman yang Anda cari mungkin sudah dipindahkan atau tidak pernah ada. Coba kembali ke beranda."
   }
 }

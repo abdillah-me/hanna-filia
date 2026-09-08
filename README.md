@@ -74,12 +74,25 @@ programme's entry in `src/content/programs.ts` — nothing else needs editing.
 
 1. Add the new code to both the `Locale` type and the `LOCALES` array in
    `src/content/types.ts` (not `routing.ts` — `src/i18n/routing.ts` only
-   imports `LOCALES` from there, it doesn't define it).
+   imports `LOCALES` from there, it doesn't define it). `LocaleToggle` reads
+   `LOCALES` too, so the switcher picks up the new language automatically —
+   nothing to edit there.
 2. Add `messages/<code>.json` with the same key set as `id.json`.
 3. Add the field to the `Localized` type in `src/content/types.ts` and fill
    it in throughout `src/content/`. TypeScript will list every place that
    still needs it, since every existing `Localized` object literal will be
    missing the new field.
+4. Add the new locale to `alternates.languages` in every page's
+   `generateMetadata`. This is deliberately hand-written per page, not
+   inherited or generated from `LOCALES` — inheritance would silently produce
+   the wrong canonical set for pages that don't actually exist yet in the new
+   locale. Every file under `src/app/[locale]/` with a `generateMetadata`
+   export has one of these maps: `layout.tsx`, `page.tsx`, `about/page.tsx`,
+   `programs/page.tsx`, `programs/[slug]/page.tsx`, `study-abroad/page.tsx`,
+   `teachers/page.tsx`, `gallery/page.tsx`, `articles/page.tsx`, and
+   `contact/page.tsx`.
+5. Add the new locale to the `openGraph.locale` ternary in
+   `src/app/[locale]/layout.tsx`'s `generateMetadata`.
 
 ## The design system
 

@@ -28,6 +28,7 @@ export default async function ProgramsPage({ params }: { params: Promise<{ local
   const { locale } = await params;
   setRequestLocale(locale);
   const tp = await getTranslations('programs');
+  const tc = await getTranslations('cta');
 
   return (
     <main>
@@ -50,7 +51,7 @@ export default async function ProgramsPage({ params }: { params: Promise<{ local
               </span>
               <span className="text-body-medium">{t(p.summary, locale)}</span>
               <span className="font-heading text-title-small text-primary md:text-right">
-                {SHOW_PRICES ? t(p.price, locale).split(' · ')[0] : tp('fee')}
+                {SHOW_PRICES ? t(p.price, locale).split(' · ')[0] : tc('askPrice')}
               </span>
             </Link>
           ))}

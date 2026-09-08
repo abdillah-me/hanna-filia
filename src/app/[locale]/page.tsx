@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
 import type { Locale } from '@/content/types';
 import { ROUTES } from '@/content/site';
+import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/m3/Button';
 import { LevelLadder } from '@/components/sections/LevelLadder';
 import { Marquee } from '@/components/sections/Marquee';
@@ -11,6 +12,13 @@ import { ProgramGrid } from '@/components/sections/ProgramGrid';
 import { HfosTeaser } from '@/components/sections/HfosTeaser';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { TrialCta } from '@/components/sections/TrialCta';
+import { Section } from '@/components/sections/Section';
+
+// Spec routes Gallery, Articles, About and Teachers via footer *and* a
+// homepage link block — the bottom nav caps at five destinations and the top
+// bar renders no links below 768px, so these four are otherwise reachable
+// only from the bottom of the footer.
+const MORE_LINK_KEYS = ['about', 'teachers', 'gallery', 'articles'] as const;
 
 export async function generateMetadata({
   params,
@@ -32,6 +40,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
   setRequestLocale(locale);
   const t = await getTranslations('home');
   const tc = await getTranslations('cta');
+  const tn = await getTranslations('nav');
 
   return (
     <main>
@@ -61,6 +70,23 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
       <HfosTeaser />
       <Testimonials />
       <TrialCta />
+
+      <Section bordered={false}>
+        <h2 className="mb-5 text-headline-small">{t('moreLinks')}</h2>
+        <div className="flex flex-wrap gap-3">
+          {MORE_LINK_KEYS.map((key) => (
+            <Link
+              key={key}
+              href={ROUTES[key]}
+              className="state-layer relative inline-flex min-h-12 items-center rounded-full
+                         border-[1.5px] border-on-surface px-4 py-2 font-heading text-title-small
+                         text-on-surface no-underline"
+            >
+              {tn(key)}
+            </Link>
+          ))}
+        </div>
+      </Section>
     </main>
   );
 }

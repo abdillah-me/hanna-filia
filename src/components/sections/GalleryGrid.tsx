@@ -29,7 +29,7 @@ export function GalleryGrid() {
   return (
     <div>
       <div
-        role="tablist"
+        role="group"
         aria-label={tg('filterLabel')}
         className="mb-7 flex gap-2.5 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
@@ -40,8 +40,7 @@ export function GalleryGrid() {
               key={cat.key}
               ref={(el) => { tabRefs.current[i] = el; }}
               type="button"
-              role="tab"
-              aria-selected={selected}
+              aria-pressed={selected}
               tabIndex={selected ? 0 : -1}
               onClick={() => setActive(cat.key)}
               onKeyDown={(e) => onKeyDown(e, i)}

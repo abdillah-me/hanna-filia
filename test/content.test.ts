@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 
 import { programs } from '../src/content/programs.ts';
 import { teachers } from '../src/content/teachers.ts';
@@ -122,11 +122,17 @@ test('every imageKey referenced by content exists in the manifest', () => {
   }
 });
 
-test('every non-teacher image has a src and a ratio', () => {
+test('every non-teacher image has a src, a ratio, and a file on disk', () => {
   for (const [key, entry] of Object.entries(images)) {
     assert.match(entry.ratio, /^\d+\/\d+$/, `${key} has an invalid ratio "${entry.ratio}"`);
     if (!key.startsWith('teacher-')) {
       assert.ok(entry.src.length > 0, `${key} has no src`);
+      // entry.src may be a path under /public or an absolute URL — only the
+      // former can be checked against the filesystem.
+      if (!/^https?:\/\//.test(entry.src)) {
+        const filePath = new URL(`../public${entry.src}`, import.meta.url);
+        assert.ok(existsSync(filePath), `${key}'s src "${entry.src}" does not exist in public/`);
+      }
     }
   }
 });

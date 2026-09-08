@@ -70,8 +70,7 @@
     "vision": "Vision",
     "mission": "Mission",
     "values": "Values",
-    "facilities": "Facilities",
-    "buildingPhoto": "The Hanna Filia building at Nagoya Newton"
+    "facilities": "Facilities"
   },
   "programs": {
     "eyebrow": "Courses",
@@ -149,7 +148,8 @@
     "hint": "This opens WhatsApp with the message filled in. You can still edit it before sending.",
     "popupBlockedFallback": "WhatsApp didn't open automatically. Tap here to open it."
   },
-  "common": {
-    "photoPending": "Placeholder photo"
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you're looking for may have moved or never existed. Try heading back to the home page."
   }
 }

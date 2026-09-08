@@ -3,8 +3,8 @@ import type { Localized } from './types.ts';
 export type ImageEntry = {
   /** Path under /public, or an absolute URL. Empty string = no photo yet. */
   src: string;
-  /** CSS aspect-ratio value, e.g. '4/3'. Matches the actual downloaded file —
-   *  see public/images/CREDITS.md before changing a src without changing this. */
+  /** CSS aspect-ratio value, e.g. '4/3'. See the comment on `images` below
+   *  before changing this. */
   ratio: string;
   alt: Localized;
 };
