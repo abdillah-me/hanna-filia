@@ -54,7 +54,7 @@ export function LevelLadder() {
             >
               {t(p.shortName, locale)}
             </span>
-            <span className="ml-auto flex-none whitespace-nowrap pl-2 text-body-small text-secondary-container/85">
+            <span className="ml-auto flex-none whitespace-nowrap pl-2 text-body-small text-secondary-container">
               {t(p.audienceShort, locale)}
             </span>
           </Link>
