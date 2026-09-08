@@ -59,6 +59,8 @@ export function RouteMap({ locale }: { locale: Locale }) {
 
       <circle cx="60" cy="240" r="9" className="fill-tertiary-container stroke-on-primary" strokeWidth="1.5" />
 
+      {/* aria-hidden: the svg's own aria-label (above) already names every
+          destination, so these text labels would be redundant to assistive tech. */}
       <g aria-hidden="true" fontFamily="var(--font-heading)" fontSize="15" fontWeight="600" className="fill-on-primary">
         {ROUTES_OUT.map((r) => (
           <text key={r.countryEn} x={r.x + 12} y={r.y + 5}>

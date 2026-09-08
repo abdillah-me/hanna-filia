@@ -45,7 +45,7 @@ export function LevelLadder() {
                 }}
               />
             </span>
-            <span className="w-4 flex-none font-heading text-title-small opacity-70">{p.n}</span>
+            <span className="w-4 flex-none font-heading text-title-small text-secondary-container">{p.n}</span>
             <span
               className={
                 'min-w-0 flex-1 truncate font-heading text-title-medium ' +

@@ -111,7 +111,8 @@
     "title": "Classes and events",
     "filterLabel": "Filter the gallery by category",
     "activities": "Regular events",
-    "placeholderNote": "The photographs on this page are placeholders and will be replaced with Hanna Filia's own."
+    "placeholderNote": "The photographs on this page are placeholders and will be replaced with Hanna Filia's own.",
+    "resultsCount": "{count, plural, =0 {No photos shown} one {# photo shown} other {# photos shown}}"
   },
   "articles": {
     "eyebrow": "Articles",
@@ -145,7 +146,8 @@
     "errorWhatsappInvalid": "That WhatsApp number is not valid. Example: 0812 7000 1234.",
     "errorProgramRequired": "Please choose a program.",
     "opening": "Hello Hanna Filia, I would like to book a free trial class.",
-    "hint": "This opens WhatsApp with the message filled in. You can still edit it before sending."
+    "hint": "This opens WhatsApp with the message filled in. You can still edit it before sending.",
+    "popupBlockedFallback": "WhatsApp didn't open automatically. Tap here to open it."
   },
   "common": {
     "photoPending": "Placeholder photo"

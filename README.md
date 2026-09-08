@@ -39,10 +39,18 @@ The six teacher cards deliberately show initials instead of a photograph.
 This is intentional, not a placeholder gap: a stock or generic portrait
 sitting next to a named, credentialled real teacher would misrepresent a
 real person, which a placeholder building or classroom photo does not. See
-`public/images/CREDITS.md`. To switch a teacher to a real portrait, add
-`teacher-1.jpg` through `teacher-6.jpg` (matching each person's `imageKey` in
-`src/content/teachers.ts`) to `public/images/` — the card switches to the
-photograph automatically once the file exists, no code change needed.
+`public/images/CREDITS.md`. To switch a teacher to a real portrait, **two
+steps are required, not one**:
+
+1. Add `teacher-1.jpg` through `teacher-6.jpg` (matching each person's
+   `imageKey` in `src/content/teachers.ts`) to `public/images/`.
+2. In `src/content/images.ts`, set that teacher's `src` to
+   `/images/teacher-N.jpg`. Unlike every other entry in that file, the six
+   `teacher-*` entries ship with `src: ''` on purpose — that empty string is
+   what tells the card to render initials instead of a photo (see
+   `hasPhoto()` in `src/components/media/PhotoSlot.tsx`). Dropping the file
+   into `public/images/` alone does nothing: nothing on the site inspects
+   the filesystem, so the card keeps showing initials until `src` is set.
 
 ## Changing text
 

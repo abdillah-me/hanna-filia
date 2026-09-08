@@ -1,9 +1,9 @@
 import type { MetadataRoute } from 'next';
 import { routing } from '@/i18n/routing';
-import { ROUTES } from '@/content/site';
+import { ROUTES, SITE_URL } from '@/content/site';
 import { programs } from '@/content/programs';
 
-const BASE = 'https://hannafilia.co.id';
+const BASE = SITE_URL;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [

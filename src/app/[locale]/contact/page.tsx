@@ -25,7 +25,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
   setRequestLocale(locale);
   const tk = await getTranslations('contact');
 
-  const rows: [string, string, string | null][] = [
+  const rows: [string, string, string][] = [
     [tk('phone'), site.phone, `tel:${site.phone.replace(/\D/g, '')}`],
     [tk('whatsapp'), site.whatsapp, `https://wa.me/${site.whatsappE164}`],
     [tk('email'), site.email, `mailto:${site.email}`],
@@ -51,11 +51,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             {rows.map(([label, value, href]) => (
               <div key={label} className="flex gap-4 border-t-[1.5px] border-outline-variant py-3.5">
                 <span className="w-28 flex-none text-body-small text-on-surface-variant">{label}</span>
-                {href ? (
-                  <a href={href} className="font-semibold text-primary">{value}</a>
-                ) : (
-                  <span className="font-semibold">{value}</span>
-                )}
+                <a href={href} className="font-semibold text-primary">{value}</a>
               </div>
             ))}
 

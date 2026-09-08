@@ -111,7 +111,8 @@
     "title": "Suasana kelas dan kegiatan",
     "filterLabel": "Saring galeri berdasarkan kategori",
     "activities": "Kegiatan rutin",
-    "placeholderNote": "Foto di halaman ini masih sementara dan akan diganti dengan dokumentasi Hanna Filia."
+    "placeholderNote": "Foto di halaman ini masih sementara dan akan diganti dengan dokumentasi Hanna Filia.",
+    "resultsCount": "{count, plural, =0 {Tidak ada foto ditampilkan} other {# foto ditampilkan}}"
   },
   "articles": {
     "eyebrow": "Artikel",
@@ -145,7 +146,8 @@
     "errorWhatsappInvalid": "Nomor WhatsApp tidak valid. Contoh: 0812 7000 1234.",
     "errorProgramRequired": "Pilih salah satu program.",
     "opening": "Halo Hanna Filia, saya ingin mendaftar kelas percobaan.",
-    "hint": "Tombol ini membuka WhatsApp dengan pesan yang sudah terisi. Anda masih bisa mengubahnya sebelum mengirim."
+    "hint": "Tombol ini membuka WhatsApp dengan pesan yang sudah terisi. Anda masih bisa mengubahnya sebelum mengirim.",
+    "popupBlockedFallback": "WhatsApp tidak terbuka otomatis. Ketuk di sini untuk membukanya."
   },
   "common": {
     "photoPending": "Foto sementara"

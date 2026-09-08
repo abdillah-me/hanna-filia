@@ -3,6 +3,10 @@ import type { Hours, Localized } from './types.ts';
 /** Flip to true to show programme prices across the whole site. */
 export const SHOW_PRICES = false;
 
+/** The single source of truth for the site's canonical origin — used by
+ *  robots.ts, sitemap.ts, and the root layout's metadataBase. */
+export const SITE_URL = 'https://hannafilia.co.id';
+
 type Site = {
   phone: string;
   whatsapp: string;

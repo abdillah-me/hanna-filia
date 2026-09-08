@@ -22,6 +22,7 @@ export function EnrolmentForm({ compact = false }: { compact?: boolean }) {
   const [program, setProgram] = useState('');
   const [message, setMessage] = useState('');
   const [errors, setErrors] = useState<Errors>({});
+  const [blockedUrl, setBlockedUrl] = useState<string | null>(null);
 
   const options = [
     ...programs.map((p) => ({ value: t(p.name, locale), label: t(p.name, locale) })),
@@ -53,7 +54,8 @@ export function EnrolmentForm({ compact = false }: { compact?: boolean }) {
       { name, whatsapp, age: compact ? undefined : age, program, message: compact ? undefined : message },
       tf('opening'),
     );
-    window.open(url, '_blank', 'noopener,noreferrer');
+    const win = window.open(url, '_blank', 'noopener,noreferrer');
+    setBlockedUrl(win ? null : url);
   }
 
   return (
@@ -79,9 +81,14 @@ export function EnrolmentForm({ compact = false }: { compact?: boolean }) {
         />
       )}
 
-      <Button type="submit" variant="tonal" className="justify-self-start">
+      <Button type="submit" variant="tonal">
         {tc('sendViaWhatsapp')}
       </Button>
+      {blockedUrl ? (
+        <a href={blockedUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary">
+          {tf('popupBlockedFallback')}
+        </a>
+      ) : null}
       <p className="text-body-small text-on-surface-variant">{tf('hint')}</p>
     </form>
   );

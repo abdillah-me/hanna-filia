@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Archivo, Source_Sans_3, Newsreader } from 'next/font/google';
 
 import { routing } from '@/i18n/routing';
+import { SITE_URL } from '@/content/site';
 import type { Locale } from '@/content/types';
 import { SkipLink } from '@/components/chrome/SkipLink';
 import { TopAppBar } from '@/components/chrome/TopAppBar';
@@ -48,7 +49,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'home' });
 
   return {
-    metadataBase: new URL('https://hannafilia.co.id'),
+    metadataBase: new URL(SITE_URL),
     title: {
       default: 'Hanna Filia English Course — Batam',
       template: '%s · Hanna Filia',

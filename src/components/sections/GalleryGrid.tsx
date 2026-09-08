@@ -58,6 +58,11 @@ export function GalleryGrid() {
         })}
       </div>
 
+      {/* Always mounted so aria-live reliably announces the count on every
+          filter change — a live region that mounts only once content exists
+          is not guaranteed to be observed by screen readers. */}
+      <p className="sr-only" aria-live="polite">{tg('resultsCount', { count: visible.length })}</p>
+
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {visible.map((item, i) => (
           <Reveal key={item.imageKey} delay={i * 50}>
