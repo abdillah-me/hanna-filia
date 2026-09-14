@@ -1,0 +1,8 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hanna Filia">
+  <!-- Brand crimson (#A21C42) tile with the initials "HF". A square mark reads
+       cleanly at 16–32px where the full logo's wordmark would be illegible.
+       Colours match the Material 3 tokens: primary background, on-primary text. -->
+  <rect width="64" height="64" rx="12" fill="#A21C42"/>
+  <text x="32" y="33" fill="#FFFDFA" font-family="Archivo, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+        font-size="30" font-weight="800" letter-spacing="-1" text-anchor="middle" dominant-baseline="central">HF</text>
+</svg>

@@ -25,8 +25,12 @@ export function ProgramGrid() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {programs.map((p, i) => (
             <Reveal key={p.slug} delay={i * 70}>
-              <Card href={`${ROUTES.programs}/${p.slug}`} className="h-full p-6">
-                <span className="font-heading text-headline-large leading-none text-primary">
+              <Card href={`${ROUTES.programs}/${p.slug}`} className="group h-full p-6">
+                <span
+                  className="inline-block origin-left font-heading text-headline-large leading-none
+                             text-primary transition-transform duration-200 ease-emphasized
+                             motion-safe:group-hover:scale-110"
+                >
                   {p.n}
                 </span>
                 <p className="mt-4 font-heading text-title-large">{t(p.name, locale)}</p>

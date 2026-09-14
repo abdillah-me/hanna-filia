@@ -39,24 +39,33 @@ export function BottomNav() {
               <Link
                 href={href}
                 aria-current={active ? 'page' : undefined}
-                className="flex h-full min-h-12 flex-col items-center justify-center gap-1
+                className="group flex h-full min-h-12 flex-col items-center justify-center gap-1
                            no-underline text-on-surface-variant"
               >
                 <span className="relative flex h-8 w-16 items-center justify-center">
-                  {/* M3 active indicator: a pill that grows from the centre. */}
+                  {/* M3 active indicator. Instead of a horizontal scaleX (which
+                      reads rubbery), the pill fades in while scaling up from 80%
+                      to full size — a rounder, more deliberate entrance. It also
+                      squeezes slightly on press for tactile feedback. */}
                   <span
                     aria-hidden="true"
-                    className="absolute inset-0 rounded-full bg-secondary-container
-                               transition-transform duration-[240ms] ease-emphasized"
-                    style={{ transform: active ? 'scaleX(1)' : 'scaleX(0)' }}
+                    className={
+                      'absolute inset-0 rounded-full bg-secondary-container ' +
+                      'transition-[transform,opacity] duration-[240ms] ease-emphasized ' +
+                      'group-active:scale-95 ' +
+                      (active ? 'scale-100 opacity-100' : 'scale-75 opacity-0')
+                    }
                   />
                   <Icon
                     name={ICONS[key]}
                     filled={active}
                     size={24}
                     className={
-                      'relative transition-colors duration-[240ms] ease-emphasized ' +
-                      (active ? 'text-on-secondary-container' : 'text-on-surface-variant')
+                      'relative transition-[transform,color] duration-[240ms] ease-emphasized ' +
+                      'group-active:scale-90 ' +
+                      (active
+                        ? '-translate-y-px scale-110 text-on-secondary-container'
+                        : 'scale-100 text-on-surface-variant group-hover:text-on-surface')
                     }
                   />
                 </span>

@@ -10,40 +10,33 @@ export type IconName =
  * [outlined, filled]. Icons without a filled variant repeat the outlined path
  * (the `filled` prop is a no-op for those — see the ternary below).
  *
- * home / school / flight / photo / chat are the five bottom-nav icons, so
- * their outlined and filled paths are deliberately drawn as two different
- * shapes (a hollow line-art glyph vs a solid silhouette) rather than reusing
- * one path — that visual difference is what makes the active nav item read.
+ * home / school / flight / photo / chat are the five bottom-nav icons. Their
+ * paths are the official Google Material Symbols (Apache-2.0), which are drawn
+ * on an `0 -960 960 960` grid rather than the classic `0 0 24 24` grid. That
+ * viewBox is declared per-icon in VIEWBOXES below, so these professional glyphs
+ * coexist with the hand-drawn 24×24 icons (phone, mail, etc.) without either
+ * needing to change. Source: github.com/google/material-design-icons.
  */
 const PATHS: Record<IconName, [string, string]> = {
   home: [
-    // Outlined: a hollow roof ring (two nested, oppositely-wound triangles),
-    // two wall corner-posts, and a solid door block.
-    'M12 4 20.5 11 3.5 11Z M12 6.1 7.3 9.95 16.7 9.95Z M4 11h1.8v9H4Z M18.2 11H20v9h-1.8Z M10 15h4v5h-4Z',
-    // Filled: solid house silhouette with the door cut into the outline.
-    'M4 20v-9.5L12 4l8 6.5V20h-6v-6h-4v6H4Z',
+    'M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Z',
+    'M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z',
   ],
   school: [
-    // Outlined: a hollow mortarboard ring (two nested, oppositely-wound
-    // quadrilaterals), the hanging tassel cord, and a solid headband bar.
-    'M12 4 2 9 12 14 20 10Z M11.8 6.4 16.2 9.7 11.8 11.9 6.3 9.1Z M20 10v6h2V9Z M6 15h12v2.5H6Z',
-    // Filled: solid mortarboard with headband.
-    'M12 4 2 9l10 5 8-4v6h2V9L12 4Zm-6 8.2V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.8l-6 3-6-3Z',
+    'M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Z',
+    'M840-280v-276L480-360 40-600l440-240 440 240v320h-80ZM480-120 200-272v-200l280 152 280-152v200L480-120Z',
   ],
   flight: [
-    // Outlined: a hollow dart/paper-plane ring (two nested, oppositely-wound
-    // triangles) plus a small solid tailfin accent.
-    'M21 6 4 10 9 17Z M16.2 8.5 10.2 14 7.7 10.5Z M9 17 13 17 11 20Z',
-    // Filled: solid jet silhouette.
-    'M10.2 3.6a1.6 1.6 0 0 1 3.1 0L14.8 10l6.4 3.1v2l-6.6-1.6-.9 4.3 2.3 1.7v1.4L12 20l-4 .9v-1.4l2.3-1.7-.9-4.3-6.6 1.6v-2L9.2 10l1-6.4Z',
+    'M340-80v-60l80-60v-220L80-320v-80l340-200v-220q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v220l340 200v80L540-420v220l80 60v60l-140-40-140 40Z',
+    'M340-80v-60l80-60v-220L80-320v-80l340-200v-220q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v220l340 200v80L540-420v220l80 60v60l-140-40-140 40Z',
   ],
   photo: [
-    'M4 5h16v14H4V5Zm2 2v8.2l3.3-3.3 3 3L15 12l3 3V7H6Z',
-    'M4 5h16v14H4V5Zm2 10.2 3.3-3.3 3 3L15 12l3 3v2H6v-1.8Z',
+    'M480-260q75 0 127.5-52.5T660-440q0-75-52.5-127.5T480-620q-75 0-127.5 52.5T300-440q0 75 52.5 127.5T480-260Zm0-80q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM160-120q-33 0-56.5-23.5T80-200v-480q0-33 23.5-56.5T160-760h126l74-80h240l74 80h126q33 0 56.5 23.5T880-680v480q0 33-23.5 56.5T800-120H160Zm0-80h640v-480H638l-73-80H395l-73 80H160v480Z',
+    'M480-260q75 0 127.5-52.5T660-440q0-75-52.5-127.5T480-620q-75 0-127.5 52.5T300-440q0 75 52.5 127.5T480-260Zm0-80q-42 0-71-29t-29-71q0-42 29-71t71-29q42 0 71 29t29 71q0 42-29 71t-71 29ZM160-120q-33 0-56.5-23.5T80-200v-480q0-33 23.5-56.5T160-760h126l74-80h240l74 80h126q33 0 56.5 23.5T880-680v480q0 33-23.5 56.5T800-120H160Z',
   ],
   chat: [
-    'M4 4h16v12H7.5L4 19.5V4Zm2 2v9l.7-.7L7.3 14H18V6H6Z',
-    'M4 4h16v12H7.5L4 19.5V4Z',
+    'M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Z',
+    'M80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm160-320h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80Z',
   ],
   arrow_right: ['M12.5 5 19 11.5 12.5 18l-1.4-1.4 4.1-4.1H5v-2h10.2l-4.1-4.1L12.5 5Z', ''],
   arrow_left: ['M11.5 5 5 11.5 11.5 18l1.4-1.4-4.1-4.1H19v-2H8.8l4.1-4.1L11.5 5Z', ''],
@@ -66,6 +59,18 @@ const PATHS: Record<IconName, [string, string]> = {
   menu: ['M4 6h16v2H4V6Zm0 5h16v2H4v-2Zm0 5h16v2H4v-2Z', ''],
 };
 
+// The five Material Symbols nav icons are drawn on Google's `0 -960 960 960`
+// grid; every other icon uses the classic `0 0 24 24` grid. Anything not listed
+// here falls back to 24×24, so adding a new 24×24 icon needs no entry.
+const MATERIAL_VIEWBOX = '0 -960 960 960';
+const VIEWBOXES: Partial<Record<IconName, string>> = {
+  home: MATERIAL_VIEWBOX,
+  school: MATERIAL_VIEWBOX,
+  flight: MATERIAL_VIEWBOX,
+  photo: MATERIAL_VIEWBOX,
+  chat: MATERIAL_VIEWBOX,
+};
+
 type Props = Omit<SVGProps<SVGSVGElement>, 'name'> & {
   name: IconName;
   filled?: boolean;
@@ -78,7 +83,7 @@ export function Icon({ name, filled = false, size = 24, className, ...rest }: Pr
 
   return (
     <svg
-      viewBox="0 0 24 24"
+      viewBox={VIEWBOXES[name] ?? '0 0 24 24'}
       width={size}
       height={size}
       fill="currentColor"

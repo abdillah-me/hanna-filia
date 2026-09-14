@@ -54,10 +54,50 @@
   .elevation-1 { box-shadow: var(--md-elevation-1); }
   .elevation-2 { box-shadow: var(--md-elevation-2); }
   .elevation-3 { box-shadow: var(--md-elevation-3); }
+
+  /* Hover-lift for interactive surfaces (cards, buttons). Adds a small upward
+     translate on hover and a gentle press-down on active, on top of whatever
+     box-shadow/border transitions the component already declares. GPU-friendly
+     (transform only) and reset to none under reduced-motion below. */
+  .hover-lift {
+    transition:
+      transform var(--md-duration-short4) var(--ease-emphasized),
+      box-shadow var(--md-duration-short4) var(--ease-standard),
+      border-color var(--md-duration-short4) var(--ease-standard);
+    will-change: transform;
+  }
+  .hover-lift:hover { transform: translateY(-3px); }
+  .hover-lift:active { transform: translateY(-1px) scale(0.995); }
+
+  /* Press feedback for buttons — no lift, just a tactile squeeze on press. */
+  .press {
+    transition: transform var(--md-duration-short2) var(--ease-emphasized);
+  }
+  .press:active { transform: scale(0.97); }
+
+  /* Staggered entrance for a hero (or any above-the-fold block that mounts
+     visible, where the scroll-triggered Reveal never fires). Elements start
+     shifted+faded and settle in; --hf-enter-delay sequences siblings. */
+  .hf-enter {
+    animation: hf-rise var(--md-duration-long2) var(--ease-emphasized-decelerate) both;
+    animation-delay: var(--hf-enter-delay, 0ms);
+  }
+
+  /* Page-transition entrance. Applied by `[locale]/template.tsx`, which
+     remounts on every navigation — so this fires on each page change and on a
+     locale switch. Deliberately lighter than `hf-enter`: a whole-page slide
+     reads as heavy, so this is a quick fade with only a 6px lift. */
+  .hf-page {
+    animation: hf-fade-in var(--md-duration-medium2) var(--ease-emphasized-decelerate) both;
+  }
 }
 
 @keyframes hf-rise {
   from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hf-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes hf-step {
@@ -72,6 +112,15 @@
   from { stroke-dashoffset: 700; }
   to   { stroke-dashoffset: 0; }
 }
+/* Slow, low-amplitude drift for the decorative hero accents. Purely aesthetic,
+   never carries content — safe to freeze entirely under reduced-motion. */
+@keyframes hf-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(0, -14px, 0); }
+}
+.hf-float {
+  animation: hf-float 9s var(--ease-standard) infinite;
+}
 
 /* Motion off, content still visible. Never leave anything at opacity 0 here. */
 @media (prefers-reduced-motion: reduce) {
@@ -82,4 +131,14 @@
     scroll-behavior: auto !important;
   }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
+
+  /* Transform-based micro-interactions are set directly on :hover/:active,
+     not via animation, so zeroing durations above doesn't remove them.
+     Suppress the movement explicitly; the box-shadow/border feedback stays. */
+  .hover-lift:hover,
+  .hover-lift:active,
+  .press:active { transform: none !important; }
+  .hf-enter { animation: none !important; }
+  .hf-page { animation: none !important; }
+  .hf-float { animation: none !important; }
 }

@@ -5,9 +5,9 @@ import { Icon, type IconName } from '@/components/Icon';
 type Variant = 'filled' | 'tonal' | 'outlined' | 'outlinedInverse' | 'text';
 
 const VARIANTS: Record<Variant, string> = {
-  filled: 'bg-primary text-on-primary border-primary px-5',
-  tonal: 'bg-tertiary-container text-on-tertiary-container border-on-surface px-5',
-  outlined: 'bg-transparent text-on-surface border-on-surface px-5',
+  filled: 'bg-primary text-on-primary border-primary px-5 hover:elevation-1',
+  tonal: 'bg-tertiary-container text-on-tertiary-container border-on-surface px-5 hover:elevation-1',
+  outlined: 'bg-transparent text-on-surface border-on-surface px-5 hover:elevation-1',
   // Outlined button on a primary-coloured (crimson) background — e.g. hero
   // CTAs. A consumer must never pass on-primary/on-surface colour classes
   // in `className` to simulate this: `text`/`border` are single CSS
@@ -28,7 +28,7 @@ const VARIANTS: Record<Variant, string> = {
 // produced real bugs in Task 5 (`px-*`) and Task 6 (a CTA visible at every
 // viewport width).
 const BASE =
-  'state-layer relative inline-flex items-center justify-center gap-2 ' +
+  'state-layer press relative inline-flex items-center justify-center gap-2 ' +
   'border-[1.5px] rounded-sm py-3 min-h-12 ' +
   'font-heading text-label-large no-underline cursor-pointer ' +
   'transition-[box-shadow,background-color] duration-200 ease-standard ' +

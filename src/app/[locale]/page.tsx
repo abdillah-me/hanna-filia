@@ -1,69 +1,71 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server';
-import type { Metadata } from 'next';
-import type { Locale } from '@/content/types';
-import { ROUTES } from '@/content/site';
-import { Link } from '@/i18n/navigation';
-import { Button } from '@/components/m3/Button';
-import { LevelLadder } from '@/components/sections/LevelLadder';
-import { Marquee } from '@/components/sections/Marquee';
-import { StatsBar } from '@/components/sections/StatsBar';
-import { PathFinder } from '@/components/sections/PathFinder';
-import { ProgramGrid } from '@/components/sections/ProgramGrid';
-import { HfosTeaser } from '@/components/sections/HfosTeaser';
-import { Testimonials } from '@/components/sections/Testimonials';
-import { TrialCta } from '@/components/sections/TrialCta';
-import { Section } from '@/components/sections/Section';
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import type { Locale } from "@/content/types";
+import { ROUTES } from "@/content/site";
+import { Link } from "@/i18n/navigation";
+import { Button } from "@/components/m3/Button";
+import { Hero } from "@/components/sections/Hero";
+import { Marquee } from "@/components/sections/Marquee";
+import { StatsBar } from "@/components/sections/StatsBar";
+import { PathFinder } from "@/components/sections/PathFinder";
+import { ProgramGrid } from "@/components/sections/ProgramGrid";
+import { HfosTeaser } from "@/components/sections/HfosTeaser";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { TrialCta } from "@/components/sections/TrialCta";
+import { Section } from "@/components/sections/Section";
 
 // Spec routes Gallery, Articles, About and Teachers via footer *and* a
 // homepage link block — the bottom nav caps at five destinations and the top
 // bar renders no links below 768px, so these four are otherwise reachable
 // only from the bottom of the footer.
-const MORE_LINK_KEYS = ['about', 'teachers', 'gallery', 'articles'] as const;
+const MORE_LINK_KEYS = ["about", "teachers", "gallery", "articles"] as const;
 
 export async function generateMetadata({
   params,
-}: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'home' });
+  const t = await getTranslations({ locale, namespace: "home" });
   return {
-    title: t('heroTitle'),
-    description: t('heroBody'),
+    title: t("heroTitle"),
+    description: t("heroBody"),
     alternates: {
       canonical: `/${locale}`,
-      languages: { id: '/id', en: '/en' },
+      languages: { id: "/id", en: "/en" },
     },
   };
 }
 
-export default async function HomePage({ params }: { params: Promise<{ locale: Locale }> }) {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations('home');
-  const tc = await getTranslations('cta');
-  const tn = await getTranslations('nav');
+  const t = await getTranslations("home");
+  const tc = await getTranslations("cta");
+  const tn = await getTranslations("nav");
 
   return (
     <main>
-      <section className="bg-primary text-on-primary">
-        <div className="mx-auto grid max-w-[1140px] items-start gap-12 px-6 pb-18 pt-20
-                        md:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] md:gap-16">
-          <div className="min-w-0">
-            <h1 className="mb-6 text-display-large text-balance">{t('heroTitle')}</h1>
-            <p className="mb-9 max-w-[46ch] text-body-large text-secondary-container">
-              {t('heroBody')}
-            </p>
-            <div className="flex flex-wrap items-center gap-3.5">
-              <Button href={ROUTES.contact} variant="tonal">{tc('trial')}</Button>
-              <Button href={ROUTES.programs} variant="outlinedInverse">
-                {tc('seePrograms')}
-              </Button>
-            </div>
-          </div>
-          <LevelLadder />
-        </div>
-      </section>
+      <Hero
+        title={t("heroTitle")}
+        body={t("heroBody")}
+        actions={
+          <>
+            <Button href={ROUTES.contact} variant="tonal">
+              {tc("trial")}
+            </Button>
+            <Button href={ROUTES.programs} variant="outlinedInverse">
+              {tc("seePrograms")}
+            </Button>
+          </>
+        }
+      />
 
-      <Marquee text={t('marquee')} />
+      <Marquee text={t("marquee")} />
       <StatsBar />
       <PathFinder />
       <ProgramGrid />
@@ -72,7 +74,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: L
       <TrialCta />
 
       <Section bordered={false}>
-        <h2 className="mb-5 text-headline-small">{t('moreLinks')}</h2>
+        <h2 className="mb-5 text-headline-small">{t("moreLinks")}</h2>
         <div className="flex flex-wrap gap-3">
           {MORE_LINK_KEYS.map((key) => (
             <Link

@@ -5,7 +5,8 @@ const BASE =
   'block border-[1.5px] border-on-surface rounded-sm bg-surface text-on-surface ' +
   'transition-[box-shadow,border-color] duration-200 ease-standard';
 
-const INTERACTIVE = 'state-layer relative hover:border-primary hover:elevation-1 no-underline';
+const INTERACTIVE =
+  'state-layer hover-lift relative hover:border-primary hover:elevation-2 no-underline';
 
 export function Card({
   href,
