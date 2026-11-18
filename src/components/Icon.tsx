@@ -17,7 +17,7 @@ export type IconName =
  * coexist with the hand-drawn 24×24 icons (phone, mail, etc.) without either
  * needing to change. Source: github.com/google/material-design-icons.
  */
-const PATHS: Record<IconName, [string, string]> = {
+export const PATHS: Record<IconName, [string, string]> = {
   home: [
     'M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Z',
     'M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z',

@@ -5,15 +5,14 @@ import { Link, usePathname } from '@/i18n/navigation';
 import { ROUTES, bottomNavKeys, type BottomNavKey } from '@/content/site';
 import { Icon, type IconName } from '@/components/Icon';
 
-// Exactly the five bottom-nav destinations — `BottomNavKey` is the literal
-// union derived from `bottomNavKeys`, not the full eight-route `RouteKey`, so
+// Exactly the four bottom-nav destinations — `BottomNavKey` is the literal
+// union derived from `bottomNavKeys`, not the full route `RouteKey`, so
 // there is no room for a padded entry (e.g. `about: 'home'`) that would
 // assert an icon for a route this bar never renders.
 const ICONS: Record<BottomNavKey, IconName> = {
   home: 'home',
   programs: 'school',
   studyAbroad: 'flight',
-  gallery: 'photo',
   contact: 'chat',
 };
 
@@ -47,7 +46,7 @@ export function BottomNav() {
                 }
               >
                 <Icon name={ICONS[key]} filled={active} size={22} />
-                <span className={'text-label-nav font-heading ' + (active ? 'font-bold' : 'font-medium')}>
+                <span className={'whitespace-nowrap text-label-nav font-heading ' + (active ? 'font-bold' : 'font-medium')}>
                   {tShort(key)}
                 </span>
               </Link>

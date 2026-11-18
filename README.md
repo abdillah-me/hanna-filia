@@ -108,7 +108,7 @@ components did not have to change. `PRODUCT.md` records who the site is for;
 ## Layout
 
 The breakpoint is 768px. Below it, navigation is a Material 3 bottom
-navigation bar with five destinations. At and above it, a top app bar with
+dock with four destinations. At and above it, a top app bar with
 six links; the "Daftar kelas percobaan" (book a trial class) button appears
 from 1024px.
 

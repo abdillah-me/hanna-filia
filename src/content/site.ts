@@ -80,12 +80,13 @@ export type RouteKey = keyof typeof ROUTES;
  *  Not eight — eight plus logo, locale toggle and CTA overflow at 768px. */
 export const topNavKeys: RouteKey[] = ['home', 'about', 'programs', 'studyAbroad', 'teachers', 'contact'];
 
-/** M3 caps a navigation bar at five destinations. `as const satisfies` keeps
+/** The phone dock holds the four destinations that matter most; Gallery,
+ *  About and Teachers stay reachable from the footer. `as const satisfies` keeps
  *  this list checked against `RouteKey` while also giving `BottomNavKey` a
- *  literal union of exactly these five — so a lookup table keyed by
+ *  literal union of exactly these four — so a lookup table keyed by
  *  `BottomNavKey` (see `BottomNav`'s `ICONS` map) cannot be padded with
  *  entries for routes that never appear in the bottom nav. */
-export const bottomNavKeys = ['home', 'programs', 'studyAbroad', 'gallery', 'contact'] as const satisfies readonly RouteKey[];
+export const bottomNavKeys = ['home', 'programs', 'studyAbroad', 'contact'] as const satisfies readonly RouteKey[];
 
 export type BottomNavKey = (typeof bottomNavKeys)[number];
 
