@@ -7,14 +7,14 @@ const BASE = SITE_URL;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
-    ...Object.values(ROUTES),
+    // Articles is noindex until it has real content — see its page.
+    ...Object.values(ROUTES).filter((path) => path !== ROUTES.articles),
     ...programs.map((p) => `${ROUTES.programs}/${p.slug}`),
   ];
 
   return routing.locales.flatMap((locale) =>
     paths.map((path) => ({
       url: `${BASE}/${locale}${path === '/' ? '' : path}`,
-      lastModified: new Date(),
       alternates: {
         languages: Object.fromEntries(
           routing.locales.map((l) => [l, `${BASE}/${l}${path === '/' ? '' : path}`]),

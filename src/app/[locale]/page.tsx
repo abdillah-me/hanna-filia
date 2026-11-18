@@ -2,23 +2,15 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import type { Locale } from "@/content/types";
 import { ROUTES } from "@/content/site";
-import { Link } from "@/i18n/navigation";
+import { pageMetadata } from "@/lib/seo";
 import { Button } from "@/components/m3/Button";
 import { Hero } from "@/components/sections/Hero";
-import { Marquee } from "@/components/sections/Marquee";
 import { StatsBar } from "@/components/sections/StatsBar";
 import { PathFinder } from "@/components/sections/PathFinder";
 import { ProgramGrid } from "@/components/sections/ProgramGrid";
 import { HfosTeaser } from "@/components/sections/HfosTeaser";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { TrialCta } from "@/components/sections/TrialCta";
-import { Section } from "@/components/sections/Section";
-
-// Spec routes Gallery, Articles, About and Teachers via footer *and* a
-// homepage link block — the bottom nav caps at five destinations and the top
-// bar renders no links below 768px, so these four are otherwise reachable
-// only from the bottom of the footer.
-const MORE_LINK_KEYS = ["about", "teachers", "gallery", "articles"] as const;
 
 export async function generateMetadata({
   params,
@@ -28,12 +20,10 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "home" });
   return {
-    title: t("heroTitle"),
-    description: t("heroBody"),
-    alternates: {
-      canonical: `/${locale}`,
-      languages: { id: "/id", en: "/en" },
-    },
+    ...pageMetadata(locale, "", t("metaTitle"), t("metaDescription")),
+    // absolute: the homepage title already carries the brand, so it must not
+    // also get the layout's "· Hanna Filia" suffix.
+    title: { absolute: t("metaTitle") },
   };
 }
 
@@ -46,7 +36,6 @@ export default async function HomePage({
   setRequestLocale(locale);
   const t = await getTranslations("home");
   const tc = await getTranslations("cta");
-  const tn = await getTranslations("nav");
 
   return (
     <main>
@@ -55,40 +44,23 @@ export default async function HomePage({
         body={t("heroBody")}
         actions={
           <>
-            <Button href={ROUTES.contact} variant="tonal">
+            <Button href={ROUTES.contact}>
               {tc("trial")}
             </Button>
-            <Button href={ROUTES.programs} variant="outlinedInverse">
+            <Button href={ROUTES.programs} variant="outlined">
               {tc("seePrograms")}
             </Button>
           </>
         }
       />
 
-      <Marquee text={t("marquee")} />
+      <ProgramGrid />
       <StatsBar />
       <PathFinder />
-      <ProgramGrid />
       <HfosTeaser />
       <Testimonials />
       <TrialCta />
 
-      <Section bordered={false}>
-        <h2 className="mb-5 text-headline-small">{t("moreLinks")}</h2>
-        <div className="flex flex-wrap gap-3">
-          {MORE_LINK_KEYS.map((key) => (
-            <Link
-              key={key}
-              href={ROUTES[key]}
-              className="state-layer relative inline-flex min-h-12 items-center rounded-full
-                         border-[1.5px] border-on-surface px-4 py-2 font-heading text-title-small
-                         text-on-surface no-underline"
-            >
-              {tn(key)}
-            </Link>
-          ))}
-        </div>
-      </Section>
     </main>
   );
 }

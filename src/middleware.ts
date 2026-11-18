@@ -10,5 +10,5 @@ export const config = {
   // without naming them here the i18n middleware would redirect `/apple-icon`
   // to `/id/apple-icon` (a 404). `icon.svg` already has a dot and is exempt,
   // but it's listed too so both icon routes are handled the same way.
-  matcher: '/((?!api|_next|_vercel|icon|apple-icon|.*\\..*).*)',
+  matcher: '/((?!api|_next|_vercel|icon|apple-icon|opengraph-image|.*\\..*).*)',
 };

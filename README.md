@@ -1,6 +1,6 @@
 # Hanna Filia English Course — website
 
-Next.js 15 · TypeScript · Tailwind v4 · Material 3 tokens · Indonesian and English.
+Next.js 15 · TypeScript · Tailwind v4 · Indonesian and English.
 
 ## Running it
 
@@ -82,21 +82,14 @@ programme's entry in `src/content/programs.ts` — nothing else needs editing.
    it in throughout `src/content/`. TypeScript will list every place that
    still needs it, since every existing `Localized` object literal will be
    missing the new field.
-4. Add the new locale to `alternates.languages` in every page's
-   `generateMetadata`. This is deliberately hand-written per page, not
-   inherited or generated from `LOCALES` — inheritance would silently produce
-   the wrong canonical set for pages that don't actually exist yet in the new
-   locale. Every file under `src/app/[locale]/` with a `generateMetadata`
-   export has one of these maps: `layout.tsx`, `page.tsx`, `about/page.tsx`,
-   `programs/page.tsx`, `programs/[slug]/page.tsx`, `study-abroad/page.tsx`,
-   `teachers/page.tsx`, `gallery/page.tsx`, `articles/page.tsx`, and
-   `contact/page.tsx`.
-5. Add the new locale to the `openGraph.locale` ternary in
-   `src/app/[locale]/layout.tsx`'s `generateMetadata`.
+4. Canonical, hreflang and Open Graph tags come from `pageMetadata()` in
+   `src/lib/seo.ts`, which every page's `generateMetadata` calls. It lists
+   every locale in `LOCALES` automatically, so it assumes each page exists in
+   each locale. Add the new locale to its `openGraph.locale` ternary.
 
 ## The design system
 
-`src/styles/tokens.css` holds the entire Material 3 system — colour, shape,
+`src/styles/tokens.css` holds the entire design system — colour, shape,
 type, motion, elevation. It is the only file in the codebase allowed to
 contain a hex colour value. Every colour used anywhere else goes through a
 token name such as `bg-primary` or `text-on-surface-variant`.
@@ -105,14 +98,12 @@ token name such as `bg-primary` or `text-on-surface-variant`.
 changing a colour to something unreadable fails the build rather than a
 manual audit later.
 
-One brand-specific rule the test guards: gold (`tertiary-container`) on
-crimson (`primary`) is about 4.51:1, which clears AA for normal text by a
-hair. It's used for the "Gratis" and "Level N" badges. Never use it for body
-text, and never dim it with a Tailwind opacity modifier (e.g. `/85`) —
-lowering the opacity of an already-marginal colour pair is exactly the kind
-of change this test exists to catch, and it did catch one during this build
-(a stray `text-secondary-container/85` on the homepage's level list dropped
-a badge below 4.5:1 against the crimson background).
+The look is the conventional language-course one, chosen by the owner: white
+ground, warm ink, brand crimson for actions only, gold for the "Gratis" and
+"Level N" tags, one typeface (Figtree), soft corners and hairline borders.
+The token names keep their Material 3 roles (`primary`, `surface`, …) so
+components did not have to change. `PRODUCT.md` records who the site is for;
+`DESIGN.md` records the visual system.
 
 ## Layout
 
@@ -141,3 +132,15 @@ footer, and navigation — not a bare error page.
 and `src/content/programs.ts`, so a new top-level route or programme slug
 appears in the sitemap automatically once it's added to `ROUTES` or
 `programs`.
+
+## SEO
+
+- `src/lib/seo.ts` builds each page's canonical, hreflang (including
+  `x-default`) and Open Graph tags, plus the JSON-LD blocks: the school
+  (every page, from `src/content/site.ts`), each programme as a `Course`, and
+  the contact page's FAQ.
+- `src/app/opengraph-image.tsx` is the share-preview image for every page.
+- The Articles page is `noindex` and left out of the sitemap and navigation
+  while it only holds placeholder cards. When real articles exist, remove
+  `robots` from its `generateMetadata`, drop the filter in `src/app/sitemap.ts`,
+  and add `'articles'` back to `footerKeys` and the homepage's `MORE_LINK_KEYS`.

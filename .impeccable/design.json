@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-18T12:00:00Z",
+  "title": "Design System: Hanna Filia English Course",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Brand Crimson", "canonical": "#A21C42", "tonalRamp": ["#3A0514", "#5C0A22", "#7F1433", "#A21C42", "#C4506C", "#E08A9E", "#F5C4CF", "#FCE8EC"] },
+      "primary-container": { "role": "primary", "displayName": "Blush", "canonical": "#FCE8EC" },
+      "on-primary-container": { "role": "primary", "displayName": "Deep Crimson", "canonical": "#5C0A22" },
+      "tertiary-container": { "role": "tertiary", "displayName": "Marigold", "canonical": "#F2C230", "tonalRamp": ["#231B00", "#4A3C00", "#725C00", "#A38300", "#D1A91A", "#F2C230", "#F8DC83", "#FDF2CF"] },
+      "tertiary": { "role": "tertiary", "displayName": "Deep Gold", "canonical": "#725C00" },
+      "on-surface": { "role": "neutral", "displayName": "Warm Ink", "canonical": "#1D1719", "tonalRamp": ["#1D1719", "#5F5559", "#857A7E", "#E3DADD", "#E8E1E3", "#EFE9EB", "#F6F1F2", "#FAF7F8"] },
+      "on-surface-variant": { "role": "neutral", "displayName": "Mauve Grey", "canonical": "#5F5559" },
+      "secondary-container": { "role": "neutral", "displayName": "Rose-Grey Band", "canonical": "#F6F1F2" },
+      "surface-container-low": { "role": "neutral", "displayName": "Faint Rose", "canonical": "#FAF7F8" },
+      "surface-container-high": { "role": "neutral", "displayName": "Photo Ground", "canonical": "#EFE9EB" },
+      "outline-variant": { "role": "neutral", "displayName": "Hairline", "canonical": "#E3DADD" },
+      "outline": { "role": "neutral", "displayName": "Field Stroke", "canonical": "#857A7E" },
+      "surface": { "role": "neutral", "displayName": "White", "canonical": "#FFFFFF" },
+      "error": { "role": "error", "displayName": "Error Red", "canonical": "#BA1A1A" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Homepage h1 only." },
+      "display-medium": { "displayName": "Display Medium", "purpose": "Inner-page h1." },
+      "display-small": { "displayName": "Display Small", "purpose": "Lead h2 of a two-column feature section; monogram initials." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings and stat figures." },
+      "headline-small": { "displayName": "Headline Small", "purpose": "Sub-section headings." },
+      "title": { "displayName": "Title", "purpose": "Accordion questions, card names on inner pages." },
+      "title-medium": { "displayName": "Title Medium", "purpose": "Programme card names, choice chips, inline section links." },
+      "body": { "displayName": "Body", "purpose": "Default paragraph text, 46-68ch." },
+      "body-small": { "displayName": "Body Small", "purpose": "Metadata, captions; at weight 600 the top-nav link and field label." },
+      "label": { "displayName": "Label", "purpose": "Button text." },
+      "label-medium": { "displayName": "Label Medium", "purpose": "Footer column headings, field-group labels, badge." }
+    },
+    "shadows": [
+      { "name": "md-elevation-1", "value": "0 1px 2px rgb(29 23 25 / 0.06), 0 2px 6px rgb(29 23 25 / 0.06)", "purpose": "Rest lift: form panel, language-toggle thumb, filled button hover." },
+      { "name": "md-elevation-2", "value": "0 2px 4px rgb(29 23 25 / 0.06), 0 10px 24px rgb(29 23 25 / 0.10)", "purpose": "Raised: linked card hover, scrolled top bar, bottom bar." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.2, 0, 0, 1)", "purpose": "State transitions (also aliased as ease-emphasized)." },
+      { "name": "ease-emphasized-decelerate", "value": "cubic-bezier(0.05, 0.7, 0.1, 1)", "purpose": "Entrances: hero rise and page fade." },
+      { "name": "md-duration-short2", "value": "100ms", "purpose": "Button press squeeze." },
+      { "name": "md-duration-short4", "value": "200ms", "purpose": "Hover, border, shadow and colour transitions." },
+      { "name": "md-duration-medium2", "value": "300ms", "purpose": "Page fade, language-toggle slide, path-finder result." },
+      { "name": "md-duration-long2", "value": "500ms", "purpose": "Hero staggered rise (16px, 90ms steps)." },
+      { "name": "state-hover", "value": "0.08", "purpose": "currentColor state-layer opacity on hover; 0.1 on press." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "container", "value": "1140px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Filled Button",
+      "kind": "button",
+      "refersTo": "button-filled",
+      "description": "The single primary action in a view (trial sign-up, send via WhatsApp).",
+      "html": "<button class=\"ds-btn-filled\">Daftar kelas percobaan</button>",
+      "css": ".ds-btn-filled { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 20px; background: var(--color-primary, #A21C42); color: var(--color-on-primary, #fff); border: 1px solid var(--color-primary, #A21C42); border-radius: 12px; font: 700 15px/1.2 Figtree, system-ui, sans-serif; cursor: pointer; transition: box-shadow 200ms cubic-bezier(0.2,0,0,1), filter 200ms cubic-bezier(0.2,0,0,1), transform 100ms cubic-bezier(0.2,0,0,1); } .ds-btn-filled:hover { box-shadow: 0 1px 2px rgb(29 23 25 / 0.06), 0 2px 6px rgb(29 23 25 / 0.06); filter: brightness(1.08); } .ds-btn-filled:active { transform: scale(0.97); } .ds-btn-filled:focus-visible { outline: 2px solid var(--color-primary, #A21C42); outline-offset: 2px; }"
+    },
+    {
+      "name": "Outlined Button",
+      "kind": "button",
+      "refersTo": "button-outlined",
+      "description": "Secondary action beside or instead of the filled button.",
+      "html": "<button class=\"ds-btn-outlined\">Lihat program</button>",
+      "css": ".ds-btn-outlined { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 20px; background: var(--color-surface, #fff); color: var(--color-on-surface, #1D1719); border: 1px solid var(--color-outline, #857A7E); border-radius: 12px; font: 700 15px/1.2 Figtree, system-ui, sans-serif; cursor: pointer; transition: border-color 200ms cubic-bezier(0.2,0,0,1), background-color 200ms cubic-bezier(0.2,0,0,1), transform 100ms cubic-bezier(0.2,0,0,1); } .ds-btn-outlined:hover { border-color: var(--color-on-surface, #1D1719); background: #F6F1F2; } .ds-btn-outlined:active { transform: scale(0.97); } .ds-btn-outlined:focus-visible { outline: 2px solid var(--color-primary, #A21C42); outline-offset: 2px; }"
+    },
+    {
+      "name": "Programme Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Linked card: 16:9 photo flush to the top, crimson level number, name, metadata, summary.",
+      "html": "<a class=\"ds-card\" href=\"#\"><div class=\"ds-card-photo\"></div><div class=\"ds-card-body\"><p class=\"ds-card-name\"><span>3</span>Conversation Class</p><p class=\"ds-card-meta\">Umum, 15 tahun ke atas<br>3 bulan, 2× seminggu</p><p class=\"ds-card-sum\">Percakapan tematik dan roleplay situasi nyata.</p></div></a>",
+      "css": ".ds-card { display: block; width: 230px; overflow: hidden; background: var(--color-surface, #fff); color: var(--color-on-surface, #1D1719); border: 1px solid var(--color-outline-variant, #E3DADD); border-radius: 16px; text-decoration: none; font-family: Figtree, system-ui, sans-serif; transition: transform 200ms cubic-bezier(0.2,0,0,1), box-shadow 200ms cubic-bezier(0.2,0,0,1), border-color 200ms cubic-bezier(0.2,0,0,1); } .ds-card:hover { transform: translateY(-3px); border-color: var(--color-primary, #A21C42); box-shadow: 0 2px 4px rgb(29 23 25 / 0.06), 0 10px 24px rgb(29 23 25 / 0.10); } .ds-card:focus-visible { outline: 2px solid var(--color-primary, #A21C42); outline-offset: 2px; } .ds-card-photo { aspect-ratio: 16/9; background: var(--color-surface-container-high, #EFE9EB); } .ds-card-body { padding: 20px; } .ds-card-name { margin: 0; font: 700 17px/1.3 Figtree, system-ui, sans-serif; } .ds-card-name span { margin-right: 8px; color: var(--color-primary, #A21C42); } .ds-card-meta { margin: 6px 0 0; font-size: 15px; line-height: 1.5; color: var(--color-on-surface-variant, #5F5559); } .ds-card-sum { margin: 12px 0 0; font-size: 15px; line-height: 1.5; }"
+    },
+    {
+      "name": "Quote Panel",
+      "kind": "card",
+      "refersTo": "quote-panel",
+      "description": "Testimonial or pull quote on a rose-grey panel, no border.",
+      "html": "<blockquote class=\"ds-quote\"><p>Dulu saya cuma ngangguk. Sekarang saya yang mimpin meetingnya.</p><footer><strong>Nama</strong> · alumni Business English</footer></blockquote>",
+      "css": ".ds-quote { margin: 0; max-width: 360px; padding: 28px; background: var(--color-secondary-container, #F6F1F2); color: var(--color-on-secondary-container, #1D1719); border-radius: 16px; font: 400 17px/1.65 Figtree, system-ui, sans-serif; } .ds-quote p { margin: 0; } .ds-quote footer { margin-top: 16px; font-size: 15px; line-height: 1.5; color: var(--color-on-surface-variant, #5F5559); } .ds-quote strong { font-weight: 700; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "text-field",
+      "description": "Labelled input; crimson border on focus, red border and message on error.",
+      "html": "<label class=\"ds-field\"><span>Nomor WhatsApp</span><input placeholder=\"08xx xxxx xxxx\"></label>",
+      "css": ".ds-field { display: grid; gap: 6px; width: 320px; font-family: Figtree, system-ui, sans-serif; } .ds-field span { font-size: 15px; font-weight: 600; color: var(--color-on-surface, #1D1719); } .ds-field input { min-height: 48px; padding: 12px 14px; background: var(--color-surface, #fff); color: var(--color-on-surface, #1D1719); border: 1px solid var(--color-outline, #857A7E); border-radius: 8px; font: 400 17px/1.65 Figtree, system-ui, sans-serif; transition: border-color 200ms cubic-bezier(0.2,0,0,1); } .ds-field input::placeholder { color: var(--color-on-surface-variant, #5F5559); } .ds-field input:hover { border-color: var(--color-on-surface, #1D1719); } .ds-field input:focus-visible { border-color: var(--color-primary, #A21C42); outline: 2px solid var(--color-primary, #A21C42); outline-offset: 2px; }"
+    },
+    {
+      "name": "Badge",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "Marigold pill for \"Level N\" and \"Gratis\".",
+      "html": "<span class=\"ds-badge\">Level 3</span>",
+      "css": ".ds-badge { display: inline-block; padding: 6px 14px; background: var(--color-tertiary-container, #F2C230); color: var(--color-on-tertiary-container, #231B00); border-radius: 9999px; font: 700 13px/1.2 Figtree, system-ui, sans-serif; letter-spacing: 0.09em; }"
+    },
+    {
+      "name": "Choice Chip",
+      "kind": "chip",
+      "refersTo": "choice-chip",
+      "description": "Path-finder option; selected state takes a crimson border.",
+      "html": "<button class=\"ds-choice\">Saya butuh skor TOEFL/IELTS</button>",
+      "css": ".ds-choice { width: 300px; padding: 16px; text-align: left; background: var(--color-surface, #fff); color: var(--color-on-secondary-container, #1D1719); border: 1px solid var(--color-outline-variant, #E3DADD); border-radius: 12px; font: 700 17px/1.3 Figtree, system-ui, sans-serif; cursor: pointer; transition: border-color 200ms cubic-bezier(0.2,0,0,1), background-color 200ms cubic-bezier(0.2,0,0,1); } .ds-choice:hover { background: #F6F1F2; } .ds-choice:active, .ds-choice[aria-pressed=\"true\"] { border-color: var(--color-primary, #A21C42); } .ds-choice:focus-visible { outline: 2px solid var(--color-primary, #A21C42); outline-offset: 2px; }"
+    },
+    {
+      "name": "Top Bar Links",
+      "kind": "nav",
+      "description": "Desktop navigation links; current page and hover are crimson.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Beranda</a><a href=\"#\">Program</a><a href=\"#\">Pengajar</a><a href=\"#\">Kontak</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 24px; padding: 20px 24px; background: var(--color-surface, #fff); border-bottom: 1px solid var(--color-outline-variant, #E3DADD); } .ds-nav a { font: 600 15px/1.5 Figtree, system-ui, sans-serif; color: var(--color-on-surface, #1D1719); text-decoration: none; transition: color 200ms cubic-bezier(0.2,0,0,1); } .ds-nav a:hover, .ds-nav a[aria-current=\"page\"] { color: var(--color-primary, #A21C42); } .ds-nav a:focus-visible { outline: 2px solid var(--color-primary, #A21C42); outline-offset: 2px; }"
+    },
+    {
+      "name": "Bottom Bar Item",
+      "kind": "nav",
+      "refersTo": "bottom-nav",
+      "description": "Mobile bottom navigation item; active shows a blush pill, filled icon and bold label.",
+      "html": "<div class=\"ds-bnav\"><a href=\"#\" aria-current=\"page\"><span class=\"ds-bnav-pill\"><svg viewBox=\"0 -960 960 960\" width=\"24\" height=\"24\" fill=\"currentColor\"><path d=\"M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z\"/></svg></span>Beranda</a><a href=\"#\"><span class=\"ds-bnav-pill\"><svg viewBox=\"0 -960 960 960\" width=\"24\" height=\"24\" fill=\"currentColor\"><path d=\"M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Z\"/></svg></span>Program</a></div>",
+      "css": ".ds-bnav { display: flex; width: 220px; height: 80px; background: var(--color-surface-container, #F6F1F2); border-top: 1px solid var(--color-outline-variant, #E3DADD); box-shadow: 0 2px 4px rgb(29 23 25 / 0.06), 0 10px 24px rgb(29 23 25 / 0.10); } .ds-bnav a { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font: 500 12px/1.2 Figtree, system-ui, sans-serif; color: var(--color-on-surface-variant, #5F5559); text-decoration: none; } .ds-bnav-pill { display: flex; align-items: center; justify-content: center; width: 64px; height: 32px; border-radius: 9999px; transition: background-color 240ms cubic-bezier(0.2,0,0,1), transform 240ms cubic-bezier(0.2,0,0,1); } .ds-bnav a:hover { color: var(--color-on-surface, #1D1719); } .ds-bnav a:active .ds-bnav-pill { transform: scale(0.95); } .ds-bnav a[aria-current=\"page\"] { font-weight: 700; color: var(--color-on-primary-container, #5C0A22); } .ds-bnav a[aria-current=\"page\"] .ds-bnav-pill { background: var(--color-primary-container, #FCE8EC); } .ds-bnav a:focus-visible { outline: 2px solid var(--color-primary, #A21C42); outline-offset: -2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Familiar Front Desk",
+    "overview": "This is the category-standard language-course look, chosen deliberately by the owner over more distinctive directions (craft references: EF English First, British Council, Wall Street English, Cakap). A visitor comparing courses on a phone should recognise the arrangement at once: logo and trial button on top, headline beside a classroom photograph, a row of programme cards, proof, a form. The system earns trust by executing that familiar arrangement cleanly, not by surprising anyone. (The North Star name is the documenter's label, not yet confirmed by the owner.)\n\nThe ground is white, the ink a warm near-black, and the brand crimson appears only where something can be pressed or where a small fact needs emphasis. Sections are separated by hairline rules and by soft rose-grey tinted bands, never by colour floods. Corners are soft, shadows are faint and reserved for hover and floating chrome, and the page ends on a dark ink footer. It replaced an earlier crimson-flooded, ink-bordered Material 3 look; the token names keep their Material 3 roles, the values do not.",
+    "keyCharacteristics": [
+      "White surface, warm near-black text, crimson for actions only.",
+      "One typeface (Figtree), heavy headings over regular body.",
+      "Hairline borders and rose-grey bands structure the page; shadows respond to state.",
+      "Photographs in rounded frames; cards carry a 16:9 photo flush to the top edge.",
+      "Phone first: a five-destination bottom bar below 768px, a top bar with links above it."
+    ],
+    "rules": [
+      { "name": "The Pressable Crimson Rule", "body": "Crimson fills only things that can be pressed. As text it marks links and small figures. It never fills a section, a card or a band.", "section": "colors" },
+      { "name": "The Small Gold Rule", "body": "Marigold is a pill, a dot or a line of footer text. Never a button, never a section ground.", "section": "colors" },
+      { "name": "The Tested Pair Rule", "body": "Every text/background pair in use is checked for WCAG AA by `test/tokens.test.ts`. Change a colour value only together with the test.", "section": "colors" },
+      { "name": "The One Family Rule", "body": "Figtree everywhere. Hierarchy comes from weight (800 display, 700 headings and labels, 600 for small emphasis, 400 body) and size.", "section": "typography" },
+      { "name": "The Sentence Case Rule", "body": "Headings, buttons and labels are sentence case. The only uppercase text in the build is the two-letter language codes in the toggle.", "section": "typography" },
+      { "name": "The Flat-At-Rest Rule", "body": "Content surfaces have a border and no shadow until hovered. Only chrome and the one form panel carry a shadow at rest.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the ground white and separate sections with a hairline rule or a rose-grey band.",
+      "Do make the filled crimson button the single primary action in a view, with an outlined button beside it for the secondary.",
+      "Do keep interactive targets at 48px minimum height.",
+      "Do put photographs in rounded, clipped frames with a fixed aspect ratio.",
+      "Do add colours only in `src/styles/tokens.css`, keeping the Material 3 role names, and run the contrast test.",
+      "Do keep every motion effect inside the reduced-motion fallback."
+    ],
+    "donts": [
+      "Don't flood a section, band or card with crimson; that was the look this system replaced.",
+      "Don't use heavy ink borders around cards or sections; borders are 1px hairlines.",
+      "Don't add a second typeface or set headings in uppercase.",
+      "Don't give resting content cards a shadow.",
+      "Don't use Marigold as a button or section ground.",
+      "Don't present sample data or stock photos as proof; teacher cards show initials until real portraits exist."
+    ]
+  }
+}

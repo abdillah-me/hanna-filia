@@ -2,20 +2,11 @@ import type { MouseEventHandler, ReactNode } from 'react';
 import { Link } from '@/i18n/navigation';
 import { Icon, type IconName } from '@/components/Icon';
 
-type Variant = 'filled' | 'tonal' | 'outlined' | 'outlinedInverse' | 'text';
+type Variant = 'filled' | 'outlined';
 
 const VARIANTS: Record<Variant, string> = {
   filled: 'bg-primary text-on-primary border-primary px-5 hover:elevation-1',
-  tonal: 'bg-tertiary-container text-on-tertiary-container border-on-surface px-5 hover:elevation-1',
-  outlined: 'bg-transparent text-on-surface border-on-surface px-5 hover:elevation-1',
-  // Outlined button on a primary-coloured (crimson) background — e.g. hero
-  // CTAs. A consumer must never pass on-primary/on-surface colour classes
-  // in `className` to simulate this: `text`/`border` are single CSS
-  // properties, and Tailwind resolves same-property clashes by rule order
-  // in the compiled stylesheet, not by className order, so a consumer
-  // class can silently lose to this variant's own colour class.
-  outlinedInverse: 'bg-transparent text-on-primary border-on-primary px-5',
-  text: 'bg-transparent text-primary border-transparent px-1',
+  outlined: 'bg-surface text-on-surface border-outline px-5 hover:border-on-surface',
 };
 
 // `inline-flex` here is unconditional and cannot be overridden by a
@@ -29,9 +20,9 @@ const VARIANTS: Record<Variant, string> = {
 // viewport width).
 const BASE =
   'state-layer press relative inline-flex items-center justify-center gap-2 ' +
-  'border-[1.5px] rounded-sm py-3 min-h-12 ' +
+  'border rounded-md py-3 min-h-12 ' +
   'font-heading text-label-large no-underline cursor-pointer ' +
-  'transition-[box-shadow,background-color] duration-200 ease-standard ' +
+  'transition-[box-shadow,background-color,border-color] duration-200 ease-standard ' +
   'disabled:opacity-45 disabled:cursor-not-allowed';
 
 type Common = {

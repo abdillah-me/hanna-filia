@@ -25,7 +25,7 @@ export function BottomNav() {
   return (
     <nav
       aria-label={t('mainNavigation')}
-      className="fixed bottom-0 left-0 right-0 z-30 min-h-[var(--hf-bottom-nav-h)] border-t-[1.5px] border-outline-variant
+      className="fixed bottom-0 left-0 right-0 z-30 min-h-[var(--hf-bottom-nav-h)] border-t border-outline-variant
                  bg-surface-container elevation-2 md:hidden
                  pb-[env(safe-area-inset-bottom)]"
     >
@@ -50,7 +50,7 @@ export function BottomNav() {
                   <span
                     aria-hidden="true"
                     className={
-                      'absolute inset-0 rounded-full bg-secondary-container ' +
+                      'absolute inset-0 rounded-full bg-primary-container ' +
                       'transition-[transform,opacity] duration-[240ms] ease-emphasized ' +
                       'group-active:scale-95 ' +
                       (active ? 'scale-100 opacity-100' : 'scale-75 opacity-0')
@@ -64,7 +64,7 @@ export function BottomNav() {
                       'relative transition-[transform,color] duration-[240ms] ease-emphasized ' +
                       'group-active:scale-90 ' +
                       (active
-                        ? '-translate-y-px scale-110 text-on-secondary-container'
+                        ? '-translate-y-px scale-110 text-on-primary-container'
                         : 'scale-100 text-on-surface-variant group-hover:text-on-surface')
                     }
                   />
@@ -73,7 +73,7 @@ export function BottomNav() {
                   className={
                     'text-label-nav font-heading transition-colors duration-[240ms] ease-emphasized ' +
                     (active
-                      ? 'font-bold text-on-secondary-container'
+                      ? 'font-bold text-on-primary-container'
                       : 'font-medium text-on-surface-variant')
                   }
                 >

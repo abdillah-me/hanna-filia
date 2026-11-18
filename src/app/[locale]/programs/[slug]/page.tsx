@@ -12,6 +12,7 @@ import { Button } from '@/components/m3/Button';
 import { Link } from '@/i18n/navigation';
 import { PhotoSlot } from '@/components/media/PhotoSlot';
 import { Section } from '@/components/sections/Section';
+import { courseJsonLd, jsonLdHtml, pageMetadata } from '@/lib/seo';
 
 type Params = { locale: Locale; slug: string };
 
@@ -27,14 +28,7 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const program = programBySlug(slug);
   if (!program) return {};
-  return {
-    title: t(program.name, locale),
-    description: t(program.summary, locale),
-    alternates: {
-      canonical: `/${locale}/programs/${slug}`,
-      languages: { id: `/id/programs/${slug}`, en: `/en/programs/${slug}` },
-    },
-  };
+  return pageMetadata(locale, `/programs/${slug}`, t(program.name, locale), t(program.summary, locale));
 }
 
 export default async function ProgramDetailPage({ params }: { params: Promise<Params> }) {
@@ -56,23 +50,26 @@ export default async function ProgramDetailPage({ params }: { params: Promise<Pa
 
   return (
     <main>
-      <section className="border-b-[1.5px] border-on-surface bg-primary text-on-primary">
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdHtml(courseJsonLd(program, locale))} />
+      <section className="border-b border-outline-variant bg-surface-container-low text-on-surface">
         <div className="mx-auto max-w-[1140px] px-6 pb-16 pt-14">
           <Link
             href={ROUTES.programs}
-            className="mb-6 block w-fit font-heading text-body-small text-secondary-container"
+            className="mb-6 block w-fit font-heading text-body-small text-on-surface-variant"
           >
             {tc('allPrograms')}
           </Link>
-          <Badge>{`${tp('level')} ${program.n}`}</Badge>
-          <h1 className="mb-4 mt-4 text-display-medium">{t(program.name, locale)}</h1>
-          <p className="max-w-[52ch] text-body-large text-secondary-container">
+          <h1 className="mb-4 text-display-medium">{t(program.name, locale)}</h1>
+          <p className="max-w-[52ch] text-body-large text-on-surface-variant">
             {t(program.summary, locale)}
+          </p>
+          <p className="mt-5">
+            <Badge>{`${tp('level')} ${program.n}`}</Badge>
           </p>
         </div>
       </section>
 
-      <section className="border-b-[1.5px] border-on-surface bg-surface">
+      <section className="border-b border-outline-variant bg-surface">
         <div className="mx-auto grid max-w-[1140px] grid-cols-2 gap-y-6 px-6 py-10 md:grid-cols-4">
           {summaryRows.map(([label, value], i) => (
             <div
@@ -80,7 +77,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<Pa
               className={
                 'px-4 md:px-6 ' +
                 (i % 2 === 1 ? 'border-l border-outline-variant ' : '') +
-                (i >= 2 ? 'md:border-l ' : '') +
+                (i >= 2 ? 'md:border-l ' : '') + 'border-outline-variant ' +
                 (i === 0 ? 'md:pl-0' : '')
               }
             >
@@ -96,19 +93,19 @@ export default async function ProgramDetailPage({ params }: { params: Promise<Pa
           <div>
             <h2 className="mb-5 text-headline-small">{tp('syllabus')}</h2>
             {program.syllabus.map((item) => (
-              <p key={item.en} className="border-t-[1.5px] border-outline-variant py-3.5 text-body-medium">
+              <p key={item.en} className="border-t border-outline-variant py-3.5 text-body-medium">
                 {t(item, locale)}
               </p>
             ))}
           </div>
           <div>
             <h2 className="mb-5 text-headline-small">{tp('afterwards')}</h2>
-            <p className="mb-7 bg-secondary-container p-6 text-body-large text-on-secondary-container">
+            <p className="mb-7 rounded-lg bg-secondary-container p-6 text-body-large text-on-secondary-container">
               {t(program.outcome, locale)}
             </p>
             <PhotoSlot
               imageKey={program.imageKey as ImageKey}
-              className="border-[1.5px] border-on-surface"
+              className="border border-outline-variant"
               sizes="(max-width: 768px) 100vw, 540px"
             />
           </div>
@@ -121,7 +118,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<Pa
           <p className="mt-1.5 text-body-medium text-on-surface-variant">{tp('trySessionBody')}</p>
         </div>
         <div className="flex flex-wrap gap-3">
-          <Button href={ROUTES.contact} variant="tonal">{tc('trial')}</Button>
+          <Button href={ROUTES.contact}>{tc('trial')}</Button>
           <Button href={ROUTES.contact} variant="outlined">{tc('askPrice')}</Button>
         </div>
       </Section>

@@ -62,7 +62,7 @@ export function EnrolmentForm({ compact = false }: { compact?: boolean }) {
     <form onSubmit={onSubmit} noValidate className="grid gap-4">
       <TextField
         label={tf('name')} name="name" value={name} onChange={setName}
-        error={errors.name} placeholder={tf('namePlaceholder')} required
+        error={errors.name} required
       />
       <TextField
         label={tf('whatsapp')} name="whatsapp" value={whatsapp} onChange={setWhatsapp}
@@ -81,7 +81,7 @@ export function EnrolmentForm({ compact = false }: { compact?: boolean }) {
         />
       )}
 
-      <Button type="submit" variant="tonal">
+      <Button type="submit">
         {tc('sendViaWhatsapp')}
       </Button>
       {blockedUrl ? (

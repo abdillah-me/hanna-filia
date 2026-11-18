@@ -8,22 +8,16 @@ export function HfosTeaser() {
   const tc = useTranslations('cta');
 
   return (
-    <section className="border-b-[1.5px] border-on-surface bg-primary text-on-primary">
-      <div className="mx-auto grid max-w-[1140px] items-start gap-10 px-6 py-18 md:grid-cols-2 md:gap-16">
+    <section className="border-b border-outline-variant bg-surface text-on-surface">
+      <div className="mx-auto grid max-w-[1140px] items-center gap-10 px-6 py-16 md:grid-cols-2 md:gap-14">
         <div>
-          <h2 className="mb-8 text-display-small">{th('hfosTitle')}</h2>
-          <PhotoSlot
-            imageKey="hfos-hero"
-            className="border-[1.5px] border-secondary-container/55"
-            sizes="(max-width: 768px) 100vw, 520px"
-          />
-        </div>
-        <div>
-          <p className="mb-5 text-body-large text-secondary-container">{th('hfosBody')}</p>
-          <Button href={ROUTES.studyAbroad} variant="outlinedInverse">
+          <h2 className="mb-5 text-display-small text-balance">{th('hfosTitle')}</h2>
+          <p className="mb-7 max-w-[52ch] text-body-large text-on-surface-variant">{th('hfosBody')}</p>
+          <Button href={ROUTES.studyAbroad} variant="outlined">
             {tc('learnHfos')}
           </Button>
         </div>
+        <PhotoSlot imageKey="hfos-hero" sizes="(max-width: 768px) 100vw, 546px" />
       </div>
     </section>
   );

@@ -53,7 +53,7 @@ export function LocaleToggle() {
     <div
       role="group"
       aria-label={t('switchLanguage')}
-      className="relative inline-flex items-center rounded-full border-[1.5px] border-outline-variant
+      className="relative inline-flex items-center rounded-full border border-outline-variant
                  bg-surface-container p-0.5"
     >
       {/* Sliding indicator. `aria-hidden` — purely visual; state is conveyed by

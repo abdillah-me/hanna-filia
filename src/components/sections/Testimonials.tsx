@@ -9,14 +9,14 @@ export function Testimonials() {
   const th = useTranslations('home');
 
   return (
-    <section className="border-b-[1.5px] border-on-surface bg-surface">
+    <section className="border-b border-outline-variant bg-surface">
       <div className="mx-auto max-w-[1140px] px-6 py-18">
         <h2 className="mb-8 text-headline-large">{th('testimonialsTitle')}</h2>
         <div className="grid gap-5 md:grid-cols-3">
           {testimonials.map((item, i) => (
             <Reveal key={item.name} delay={i * 80}>
-              <blockquote className="h-full bg-secondary-container p-7">
-                <p className="font-quote text-title-large italic leading-[1.5] text-on-secondary-container">
+              <blockquote className="h-full rounded-lg bg-secondary-container p-7">
+                <p className="text-body-large text-on-secondary-container">
                   {t(item.quote, locale)}
                 </p>
                 <footer className="mt-4 text-body-small text-on-surface-variant">

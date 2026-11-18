@@ -8,20 +8,14 @@ import { t } from '@/content/types';
 import type { Locale } from '@/content/types';
 import { PageHero } from '@/components/sections/PageHero';
 import { Section } from '@/components/sections/Section';
+import { pageMetadata } from '@/lib/seo';
 
 export async function generateMetadata({
   params,
 }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
   const tp = await getTranslations({ locale, namespace: 'programs' });
-  return {
-    title: tp('title'),
-    description: tp('body'),
-    alternates: {
-      canonical: `/${locale}/programs`,
-      languages: { id: '/id/programs', en: '/en/programs' },
-    },
-  };
+  return pageMetadata(locale, '/programs', tp('title'), tp('body'));
 }
 
 export default async function ProgramsPage({ params }: { params: Promise<{ locale: Locale }> }) {
@@ -32,15 +26,15 @@ export default async function ProgramsPage({ params }: { params: Promise<{ local
 
   return (
     <main>
-      <PageHero eyebrow={tp('eyebrow')} title={tp('title')} lead={tp('body')} />
+      <PageHero title={tp('title')} lead={tp('body')} />
 
-      <section className="border-b-[1.5px] border-on-surface bg-surface">
+      <section className="border-b border-outline-variant bg-surface">
         <div className="mx-auto max-w-[1140px] px-6">
           {programs.map((p) => (
             <Link
               key={p.slug}
               href={`${ROUTES.programs}/${p.slug}`}
-              className="state-layer relative grid items-center gap-4 border-b-[1.5px]
+              className="state-layer relative grid items-center gap-4 border-b
                          border-outline-variant py-8 text-on-surface no-underline
                          md:grid-cols-[72px_minmax(0,1.1fr)_minmax(0,1fr)_auto] md:gap-7"
             >
@@ -78,7 +72,7 @@ export default async function ProgramsPage({ params }: { params: Promise<{ local
         <h2 className="mb-5 text-headline-small">{tp('crossProgram')}</h2>
         <div className="grid gap-x-6 sm:grid-cols-2 lg:grid-cols-4">
           {crossProgramBenefits.map((c) => (
-            <p key={c.en} className="border-t-[1.5px] border-outline-variant py-3.5 text-body-medium">
+            <p key={c.en} className="border-t border-outline-variant py-3.5 text-body-medium">
               {t(c, locale)}
             </p>
           ))}

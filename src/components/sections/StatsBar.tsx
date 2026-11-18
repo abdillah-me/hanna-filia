@@ -16,14 +16,14 @@ export function StatsBar() {
   );
 
   return (
-    <section className="border-b-[1.5px] border-on-surface bg-surface">
+    <section className="border-b border-outline-variant bg-surface">
       <div className="mx-auto grid max-w-[1140px] grid-cols-2 gap-y-8 px-6 py-11 md:grid-cols-4">
         {stats.map((s, i) => (
           <Reveal
             key={s.label.en}
             delay={i * 90}
             className={
-              'px-4 md:px-7 ' +
+              'border-outline-variant px-4 md:px-7 ' +
               (i % 2 === 1 ? 'border-l border-outline-variant ' : '') +
               (i >= 2 ? 'md:border-l ' : '') +
               (i === 0 ? 'md:pl-0' : '')

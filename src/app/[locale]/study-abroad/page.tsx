@@ -9,20 +9,14 @@ import { Section } from '@/components/sections/Section';
 import { RouteMap } from '@/components/sections/RouteMap';
 import { Button } from '@/components/m3/Button';
 import { Reveal } from '@/components/Reveal';
+import { pageMetadata } from '@/lib/seo';
 
 export async function generateMetadata({
   params,
 }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
   const th = await getTranslations({ locale, namespace: 'hfos' });
-  return {
-    title: th('title'),
-    description: th('lead'),
-    alternates: {
-      canonical: `/${locale}/study-abroad`,
-      languages: { id: '/id/study-abroad', en: '/en/study-abroad' },
-    },
-  };
+  return pageMetadata(locale, '/study-abroad', th('title'), th('lead'));
 }
 
 export default async function StudyAbroadPage({ params }: { params: Promise<{ locale: Locale }> }) {
@@ -33,14 +27,11 @@ export default async function StudyAbroadPage({ params }: { params: Promise<{ lo
 
   return (
     <main>
-      <section className="border-b-[1.5px] border-on-surface bg-primary text-on-primary">
+      <section className="border-b border-outline-variant bg-surface-container-low text-on-surface">
         <div className="mx-auto grid max-w-[1140px] items-center gap-10 px-6 py-16 md:grid-cols-2">
           <div>
-            <p className="mb-3.5 font-heading text-label-medium text-secondary-container">
-              {th('eyebrow')}
-            </p>
             <h1 className="mb-6 text-display-medium">{th('title')}</h1>
-            <p className="max-w-[44ch] font-quote text-quote italic text-secondary-container">
+            <p className="max-w-[56ch] text-body-large text-on-surface-variant">
               {th('lead')}
             </p>
           </div>
@@ -53,7 +44,7 @@ export default async function StudyAbroadPage({ params }: { params: Promise<{ lo
           <div>
             <h2 className="mb-5 text-headline-small">{th('services')}</h2>
             {hfosServices.map((s) => (
-              <p key={s.en} className="border-t-[1.5px] border-outline-variant py-4 text-body-large">
+              <p key={s.en} className="border-t border-outline-variant py-4 text-body-large">
                 {t(s, locale)}
               </p>
             ))}
@@ -64,7 +55,7 @@ export default async function StudyAbroadPage({ params }: { params: Promise<{ lo
               {hfosCountries.map((c) => (
                 <span
                   key={c.en}
-                  className="border-[1.5px] border-on-surface px-3.5 py-2 font-heading text-title-medium"
+                  className="rounded-full border border-outline-variant px-4 py-2 font-heading text-title-small"
                 >
                   {t(c, locale)}
                 </span>
@@ -76,16 +67,16 @@ export default async function StudyAbroadPage({ params }: { params: Promise<{ lo
 
       <Section>
         <h2 className="mb-10 text-headline-large">{th('process')}</h2>
-        <ol className="ml-2 border-l-2 border-primary">
+        <ol className="ml-4 border-l-2 border-primary-container">
           {hfosSteps.map((step, i) => (
             <Reveal key={step.n} as="li" delay={i * 70} className="relative list-none pb-9 pl-9">
               <span
-                aria-hidden="true"
-                className="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-primary"
-              />
-              <p className="mb-1.5 font-heading text-label-medium text-on-surface-variant">
-                {th('step')} {step.n}
-              </p>
+                className="absolute -left-[17px] top-0 flex h-8 w-8 items-center justify-center rounded-full
+                           bg-primary font-heading text-title-small text-on-primary"
+              >
+                <span className="sr-only">{th('step')} </span>
+                {step.n}
+              </span>
               <p className="mb-1.5 font-heading text-title-large">{t(step.title, locale)}</p>
               <p className="max-w-[60ch] text-body-medium">{t(step.body, locale)}</p>
             </Reveal>
@@ -94,8 +85,8 @@ export default async function StudyAbroadPage({ params }: { params: Promise<{ lo
       </Section>
 
       <Section bordered={false} innerClassName="flex flex-wrap items-center justify-between gap-8">
-        <blockquote className="max-w-[52ch] bg-secondary-container p-6">
-          <p className="font-quote text-title-large italic leading-[1.5] text-on-secondary-container">
+        <blockquote className="max-w-[52ch] rounded-lg bg-secondary-container p-6">
+          <p className="text-body-large text-on-secondary-container">
             {t(hfosTestimonial.quote, locale)}
           </p>
           <footer className="mt-3.5 text-body-small text-on-surface-variant">
@@ -103,7 +94,7 @@ export default async function StudyAbroadPage({ params }: { params: Promise<{ lo
             {t(hfosTestimonial.role, locale)}
           </footer>
         </blockquote>
-        <Button href={ROUTES.contact} variant="tonal">
+        <Button href={ROUTES.contact}>
           {tc('scheduleConsult')}
         </Button>
       </Section>

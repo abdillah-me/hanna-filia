@@ -60,7 +60,7 @@ export const programs: Program[] = [
   {
     slug: 'conversation',
     n: 3,
-    imageKey: 'class-conversation',
+    imageKey: 'gallery-conversation-roleplay',
     name: { id: 'Conversation Class', en: 'Conversation Class' },
     shortName: { id: 'Conversation', en: 'Conversation' },
     audience: { id: 'Umum, 15 tahun ke atas', en: 'Open to anyone aged 15 and over' },

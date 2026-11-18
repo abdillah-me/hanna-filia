@@ -23,7 +23,8 @@
     "pages": "Halaman",
     "contact": "Kontak",
     "orgName": "Hanna Filia English Course",
-    "rights": "© 2026 Yayasan Hanna Filia Internasional"
+    "rights": "© 2026 Yayasan Hanna Filia Internasional",
+    "sampleNotice": "Pratinjau situs: kontak, angka, pengajar, testimoni, dan foto masih data contoh."
   },
   "cta": {
     "trial": "Daftar kelas percobaan",
@@ -36,11 +37,10 @@
     "sendViaWhatsapp": "Kirim lewat WhatsApp"
   },
   "home": {
-    "heroTitle": "Bahasa Inggris untuk yang mau melangkah lebih jauh",
-    "heroBody": "Kursus bahasa Inggris di Nagoya, Batam. Kelas kecil, pengajar bersertifikat, dari usia 6 tahun sampai persiapan kuliah di luar negeri.",
-    "levelLadder": "Tangga level",
-    "studyAbroadRow": "Studi ke luar negeri",
-    "marquee": "Kelas kecil · Maksimal 8 siswa per kelas · Pengajar bersertifikat · Nagoya, Batam · Sejak 2003 · Learning English is Fun and Easy · ",
+    "metaTitle": "Kursus Bahasa Inggris di Batam — Hanna Filia English Course",
+    "metaDescription": "Kursus bahasa Inggris di Nagoya, Batam. Kelas kecil, pengajar bersertifikat, dari usia 6 tahun sampai persiapan kuliah di luar negeri.",
+    "heroTitle": "Kursus bahasa Inggris di Batam untuk yang mau berani bicara",
+    "heroBody": "Kelas kecil, maksimal 8 siswa, jadi semua kebagian bicara. Dari Kids sampai TOEFL & IELTS di Nagoya, Batam. Kelas pertama gratis.",
     "pickTitle": "Kelas mana yang cocok?",
     "pickBody": "Pilih yang paling mendekati keadaan Anda.",
     "pickRecommendation": "Rekomendasi",
@@ -49,10 +49,8 @@
     "hfosBody": "Hanna Filia Overseas Service mendampingi pemilihan kampus, terjemahan dokumen, pengurusan student pass, sampai mencari tempat tinggal di negara tujuan. Malaysia, Singapura, Australia, Kanada, dan Selandia Baru.",
     "hfosMapAlt": "Diagram rute pendampingan dari Batam ke Malaysia, Singapura, Australia, Kanada, dan Selandia Baru",
     "testimonialsTitle": "Kata mereka",
-    "trialBadge": "Gratis",
     "trialTitle": "Coba satu kelas dulu, gratis",
-    "trialBody": "Datang ke Nagoya Newton, ikut satu sesi, lihat sendiri suasana kelasnya. Tanpa biaya, tanpa kewajiban lanjut.",
-    "moreLinks": "Halaman lain"
+    "trialBody": "Datang ke Nagoya Newton, ikut satu sesi, lihat sendiri suasana kelasnya. Tanpa biaya, tanpa kewajiban lanjut."
   },
   "pick": {
     "kids": "Anak saya usia 6–12 tahun",
@@ -65,7 +63,6 @@
     "hfosMeta": "Hanna Filia Overseas Service · konsultasi kampus sampai keberangkatan"
   },
   "about": {
-    "eyebrow": "Tentang kami",
     "title": "Dua dekade mengajar orang Batam bicara",
     "vision": "Visi",
     "mission": "Misi",
@@ -73,7 +70,6 @@
     "facilities": "Fasilitas"
   },
   "programs": {
-    "eyebrow": "Program kursus",
     "title": "Lima level, berurutan dari kata pertama",
     "body": "Tes penempatan gratis menentukan Anda mulai dari mana. Satu sesi percobaan gratis sebelum mendaftar.",
     "crossProgram": "Berlaku untuk semua program",
@@ -92,7 +88,6 @@
     "trySessionBody": "Tes penempatan gratis, tanpa kewajiban lanjut."
   },
   "hfos": {
-    "eyebrow": "HFOS",
     "title": "Hanna Filia Overseas Service",
     "lead": "Mengurus kuliah di luar negeri itu bukan satu langkah, tapi belasan. Kami sudah melewatinya bersama puluhan keluarga Batam.",
     "services": "Layanan",
@@ -101,12 +96,12 @@
     "step": "Langkah"
   },
   "teachers": {
-    "eyebrow": "Pengajar",
+    "metaDescription": "Kenali enam pengajar Hanna Filia English Course di Batam: latar pendidikan, sertifikasi, dan cara mereka mengajar.",
     "title": "Enam orang yang berdiri di depan kelas",
     "portraitPending": "Foto asli menyusul"
   },
   "gallery": {
-    "eyebrow": "Galeri & kegiatan",
+    "metaDescription": "Foto suasana kelas dan kegiatan rutin di Hanna Filia English Course, Nagoya, Batam.",
     "title": "Suasana kelas dan kegiatan",
     "filterLabel": "Saring galeri berdasarkan kategori",
     "activities": "Kegiatan rutin",
@@ -114,12 +109,11 @@
     "resultsCount": "{count, plural, =0 {Tidak ada foto ditampilkan} other {# foto ditampilkan}}"
   },
   "articles": {
-    "eyebrow": "Artikel",
     "title": "Catatan dari ruang kelas",
     "body": "Bagian ini disiapkan untuk fase dua. Tiga judul di bawah menunjukkan bentuk halamannya."
   },
   "contact": {
-    "eyebrow": "Kontak & pendaftaran",
+    "metaDescription": "Alamat, jam buka, WhatsApp, dan form pendaftaran kelas percobaan gratis Hanna Filia English Course di Nagoya Newton, Batam.",
     "title": "Datang ke Nagoya Newton",
     "address": "Alamat",
     "hours": "Jam operasional",
@@ -133,7 +127,6 @@
   },
   "form": {
     "name": "Nama lengkap",
-    "namePlaceholder": "Nama lengkap",
     "whatsapp": "Nomor WhatsApp",
     "whatsappPlaceholder": "08xx xxxx xxxx",
     "age": "Usia calon siswa",

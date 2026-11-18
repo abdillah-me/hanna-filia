@@ -24,14 +24,14 @@ export function TopAppBar() {
   return (
     <header
       className={
-        'sticky top-0 z-20 bg-surface border-b-[1.5px] border-on-surface ' +
+        'sticky top-0 z-20 bg-surface border-b border-outline-variant ' +
         'transition-shadow duration-200 ease-standard ' +
         (scrolled ? 'elevation-2' : '')
       }
     >
       <div className="mx-auto flex max-w-[1140px] items-center gap-5 px-6 py-3 lg:gap-7">
         <Link href={ROUTES.home} className="flex-none">
-          <Image src="/logo.png" alt="Hanna Filia" width={656} height={304} priority
+          <Image src="/logo.png" alt="Hanna Filia" width={656} height={304} sizes="80px" priority
                  className="h-8 w-auto md:h-9" />
         </Link>
 
@@ -64,7 +64,7 @@ export function TopAppBar() {
               the `display` property — the exact same-element Tailwind
               cascade conflict the Button/px bug in Task 5 was. */}
           <div className="hidden lg:inline-flex">
-            <Button href={ROUTES.contact} variant="outlined">
+            <Button href={ROUTES.contact}>
               {tc('trial')}
             </Button>
           </div>

@@ -10,7 +10,7 @@ export function Footer() {
   const locale = useLocale() as Locale;
 
   return (
-    <footer className="border-t-[1.5px] border-on-surface bg-primary text-on-primary">
+    <footer className="border-t border-outline-variant bg-inverse-surface text-inverse-on-surface">
       <div className="mx-auto grid max-w-[1140px] gap-12 px-6 pb-8 pt-16
                       md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,1fr)]">
         <div>
@@ -18,7 +18,7 @@ export function Footer() {
           <p className="mt-1.5 text-body-small text-secondary-container">
             {tr(site.foundation, locale)}
           </p>
-          <p className="mt-5 font-quote text-title-large italic text-tertiary-container">
+          <p className="mt-5 text-title-large italic text-tertiary-container">
             {site.motto}
           </p>
           <address className="mt-5 not-italic text-body-small text-secondary-container">
@@ -36,7 +36,7 @@ export function Footer() {
             <Link
               key={key}
               href={ROUTES[key]}
-              className="block py-1 text-body-medium text-on-primary no-underline
+              className="block py-1 text-body-medium text-inverse-on-surface no-underline
                          transition-colors duration-200 ease-standard hover:text-tertiary-container"
             >
               {t(key)}
@@ -48,14 +48,18 @@ export function Footer() {
           <p className="mb-3.5 font-heading text-label-medium text-secondary-container">
             {tf('contact')}
           </p>
-          <p className="text-body-medium">{site.phone}</p>
-          <a href={`https://wa.me/${site.whatsappE164}`} className="block text-body-medium text-on-primary no-underline hover:text-tertiary-container">
+          <a href={`tel:${site.phone.replace(/\D/g, '')}`} className="block text-body-medium text-inverse-on-surface no-underline hover:text-tertiary-container">
+            {site.phone}
+          </a>
+          <a href={`https://wa.me/${site.whatsappE164}`} className="block text-body-medium text-inverse-on-surface no-underline hover:text-tertiary-container">
             {site.whatsapp}
           </a>
-          <a href={`mailto:${site.email}`} className="block text-body-medium text-on-primary no-underline hover:text-tertiary-container">
+          <a href={`mailto:${site.email}`} className="block text-body-medium text-inverse-on-surface no-underline hover:text-tertiary-container">
             {site.email}
           </a>
-          <p className="mt-4 text-body-medium">Instagram {site.instagram}</p>
+          <a href={`https://instagram.com/${site.instagram.replace('@', '')}`} className="mt-4 block text-body-medium text-inverse-on-surface no-underline hover:text-tertiary-container">
+            Instagram {site.instagram}
+          </a>
           <p className="text-body-medium">Facebook {site.facebook}</p>
           <div className="mt-5 text-body-small text-secondary-container">
             {site.hours.map((h) => (
@@ -67,11 +71,10 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-[1140px] flex-wrap justify-between gap-6 border-t-[1.5px]
-                      border-secondary-container/40 px-6 pb-10 pt-5 text-body-small
-                      text-secondary-container">
-        <span>{tr(site.accreditationNote, locale)}</span>
-        <span>{tf('rights')}</span>
+      <div className="mx-auto max-w-[1140px] px-6 pb-10">
+        <p className="border-t border-secondary-container/25 pt-5 text-body-small text-secondary-container">
+          {tf('rights')}
+        </p>
       </div>
     </footer>
   );

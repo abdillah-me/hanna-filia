@@ -8,6 +8,7 @@ import { PageHero } from '@/components/sections/PageHero';
 import { Card } from '@/components/m3/Card';
 import { Reveal } from '@/components/Reveal';
 import { PhotoSlot } from '@/components/media/PhotoSlot';
+import { pageMetadata } from '@/lib/seo';
 
 export async function generateMetadata({
   params,
@@ -15,9 +16,10 @@ export async function generateMetadata({
   const { locale } = await params;
   const ta = await getTranslations({ locale, namespace: 'articles' });
   return {
-    title: ta('title'),
-    description: ta('body'),
-    alternates: { canonical: `/${locale}/articles`, languages: { id: '/id/articles', en: '/en/articles' } },
+    ...pageMetadata(locale, '/articles', ta('title'), ta('body')),
+    // Placeholder cards only: kept out of the index, the sitemap and the
+    // navigation until real articles exist.
+    robots: { index: false },
   };
 }
 
@@ -28,14 +30,14 @@ export default async function ArticlesPage({ params }: { params: Promise<{ local
 
   return (
     <main>
-      <PageHero eyebrow={ta('eyebrow')} title={ta('title')} lead={ta('body')} />
+      <PageHero title={ta('title')} lead={ta('body')} />
 
       <section className="bg-surface">
         <div className="mx-auto grid max-w-[1140px] gap-6 px-6 py-16 sm:grid-cols-2 lg:grid-cols-3">
           {articles.map((a, i) => (
             <Reveal key={a.imageKey} delay={i * 70}>
               <Card className="h-full overflow-hidden">
-                <div className="border-b-[1.5px] border-on-surface">
+                <div className="border-b border-outline-variant">
                   <PhotoSlot
                     imageKey={a.imageKey as ImageKey}
                     sizes="(max-width: 640px) 100vw, 360px"

@@ -37,7 +37,7 @@ export function RouteMap({ locale }: { locale: Locale }) {
       aria-label={th('hfosMapAlt')}
       className="block max-w-[520px]"
     >
-      <g fill="none" stroke="currentColor" strokeWidth="1.5" className="text-secondary-container">
+      <g fill="none" stroke="currentColor" strokeWidth="1.5" className="text-outline">
         {ROUTES_OUT.map((r, i) => (
           <path
             key={r.countryEn}
@@ -51,23 +51,30 @@ export function RouteMap({ locale }: { locale: Locale }) {
         ))}
       </g>
 
-      <g aria-hidden="true" className="fill-secondary-container">
+      <g aria-hidden="true" className="fill-primary">
         {ROUTES_OUT.map((r) => (
           <circle key={r.countryEn} cx={r.x} cy={r.y} r="5" />
         ))}
       </g>
 
-      <circle cx="60" cy="240" r="9" className="fill-tertiary-container stroke-on-primary" strokeWidth="1.5" />
+      <circle cx="60" cy="240" r="9" className="fill-tertiary-container stroke-on-surface" strokeWidth="1.5" />
 
       {/* aria-hidden: the svg's own aria-label (above) already names every
           destination, so these text labels would be redundant to assistive tech. */}
-      <g aria-hidden="true" fontFamily="var(--font-heading)" fontSize="15" fontWeight="600" className="fill-on-primary">
+      <g aria-hidden="true" fontFamily="var(--font-heading)" fontSize="15" fontWeight="600" className="fill-on-surface">
         {ROUTES_OUT.map((r) => (
-          <text key={r.countryEn} x={r.x + 12} y={r.y + 5}>
+          // Malaysia's label sits left of its dot: on the right it runs under
+          // the Canada route.
+          <text
+            key={r.countryEn}
+            x={r.countryEn === 'Malaysia' ? r.x - 12 : r.x + 12}
+            y={r.y + 5}
+            textAnchor={r.countryEn === 'Malaysia' ? 'end' : undefined}
+          >
             {countryLabel(r.countryEn, locale)}
           </text>
         ))}
-        <text x="60" y="272" className="fill-tertiary-container">Batam</text>
+        <text x="60" y="272">Batam</text>
       </g>
     </svg>
   );

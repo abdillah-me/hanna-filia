@@ -45,7 +45,7 @@ export function GalleryGrid() {
               onClick={() => setActive(cat.key)}
               onKeyDown={(e) => onKeyDown(e, i)}
               className={
-                'state-layer relative shrink-0 rounded-full border-[1.5px] border-on-surface ' +
+                'state-layer relative shrink-0 rounded-full border border-outline-variant ' +
                 'px-4 py-2 min-h-12 font-heading text-title-small cursor-pointer ' +
                 'transition-colors duration-200 ease-standard ' +
                 (selected ? 'bg-on-surface text-surface' : 'bg-transparent text-on-surface')
@@ -68,7 +68,7 @@ export function GalleryGrid() {
             <figure className="m-0">
               <PhotoSlot
                 imageKey={item.imageKey as ImageKey}
-                className="border-[1.5px] border-on-surface"
+                className="border border-outline-variant"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
               />
               <figcaption className="mt-2 text-body-small text-on-surface-variant">

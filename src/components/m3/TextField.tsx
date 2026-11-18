@@ -13,8 +13,8 @@ type Base = {
 };
 
 const FIELD =
-  'w-full border-[1.5px] rounded-sm bg-surface px-3.5 py-3 min-h-12 ' +
-  'font-body text-body-large text-on-surface ' +
+  'w-full border rounded-sm bg-surface px-3.5 py-3 min-h-12 ' +
+  'font-body text-body-large text-on-surface placeholder:text-on-surface-variant ' +
   'transition-colors duration-200 ease-standard';
 
 export function TextField({
@@ -23,7 +23,7 @@ export function TextField({
 }: Base & { type?: string; multiline?: boolean }) {
   const id = useId();
   const errorId = `${id}-error`;
-  const border = error ? 'border-error' : 'border-on-surface focus-visible:border-primary';
+  const border = error ? 'border-error' : 'border-outline focus-visible:border-primary';
   const shared = {
     id,
     name,
@@ -64,13 +64,14 @@ export function SelectField({
 }: Base & { options: { value: string; label: string }[] }) {
   const id = useId();
   const errorId = `${id}-error`;
-  const border = error ? 'border-error' : 'border-on-surface focus-visible:border-primary';
+  const border = error ? 'border-error' : 'border-outline focus-visible:border-primary';
 
   return (
     <div className="grid gap-1.5">
       <label htmlFor={id} className="text-body-small font-semibold text-on-surface">
         {label}
       </label>
+      <div className="relative">
       <select
         id={id}
         name={name}
@@ -79,7 +80,7 @@ export function SelectField({
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}
         onChange={(e) => onChange(e.target.value)}
-        className={`${FIELD} ${border}`}
+        className={`${FIELD} ${border} appearance-none pr-11`}
       >
         <option value="">{placeholder}</option>
         {options.map((o) => (
@@ -88,6 +89,14 @@ export function SelectField({
           </option>
         ))}
       </select>
+      <svg
+        aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"
+        className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant"
+        fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+      >
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+      </div>
       {error ? (
         <p id={errorId} className="text-body-small text-error">
           {error}

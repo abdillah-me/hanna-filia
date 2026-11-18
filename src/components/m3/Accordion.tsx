@@ -17,7 +17,7 @@ export function Accordion({ items }: { items: AccordionItem[] }) {
         const panelId = `${base}-${item.id}-panel`;
 
         return (
-          <div key={item.id} className="border-t-[1.5px] border-outline-variant">
+          <div key={item.id} className="border-t border-outline-variant">
             <button
               type="button"
               id={buttonId}

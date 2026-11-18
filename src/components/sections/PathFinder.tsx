@@ -44,7 +44,7 @@ export function PathFinder() {
   const resultId = 'pathfinder-result';
 
   return (
-    <section className="border-b-[1.5px] border-on-surface bg-secondary-container">
+    <section className="border-b border-outline-variant bg-secondary-container">
       <div className="mx-auto max-w-[1140px] px-6 py-16">
         <h2 className="text-headline-large text-on-secondary-container">{th('pickTitle')}</h2>
         <p className="mb-7 mt-2 max-w-[60ch] text-body-large text-on-surface-variant">
@@ -60,12 +60,12 @@ export function PathFinder() {
               aria-controls={resultId}
               onClick={() => setPicked(i)}
               className={
-                'state-layer relative rounded-sm border-[1.5px] px-4 py-4 text-left ' +
+                'state-layer relative rounded-md border px-4 py-4 text-left ' +
                 'font-heading text-title-medium cursor-pointer ' +
                 'transition-colors duration-200 ease-standard ' +
                 (picked === i
                   ? 'border-primary bg-surface text-on-surface'
-                  : 'border-on-surface bg-transparent text-on-secondary-container')
+                  : 'border-outline-variant bg-surface text-on-secondary-container')
               }
             >
               {tp(c.key)}
@@ -80,8 +80,8 @@ export function PathFinder() {
         <div id={resultId} aria-live="polite">
           {result ? (
             <div
-              className="mt-5 flex flex-wrap items-center justify-between gap-6 border-[1.5px]
-                         border-on-surface bg-surface p-6"
+              className="mt-5 flex flex-wrap items-center justify-between gap-6 border
+                         border-outline-variant bg-surface p-6 rounded-lg"
               style={{ animation: 'hf-rise var(--md-duration-medium2) var(--ease-emphasized) both' }}
             >
               <div>

@@ -8,16 +8,14 @@ import { PageHero } from '@/components/sections/PageHero';
 import { Section } from '@/components/sections/Section';
 import { Accordion } from '@/components/m3/Accordion';
 import { EnrolmentForm } from '@/components/sections/EnrolmentForm';
+import { faqJsonLd, jsonLdHtml, pageMetadata } from '@/lib/seo';
 
 export async function generateMetadata({
   params,
 }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
   const tk = await getTranslations({ locale, namespace: 'contact' });
-  return {
-    title: tk('title'),
-    alternates: { canonical: `/${locale}/contact`, languages: { id: '/id/contact', en: '/en/contact' } },
-  };
+  return pageMetadata(locale, '/contact', tk('title'), tk('metaDescription'));
 }
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: Locale }> }) {
@@ -36,7 +34,8 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
   return (
     <main>
-      <PageHero eyebrow={tk('eyebrow')} title={tk('title')} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdHtml(faqJsonLd(faq, locale))} />
+      <PageHero title={tk('title')} />
 
       <Section>
         <div className="grid gap-10 md:grid-cols-2 md:gap-14">
@@ -49,7 +48,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             </address>
 
             {rows.map(([label, value, href]) => (
-              <div key={label} className="flex gap-4 border-t-[1.5px] border-outline-variant py-3.5">
+              <div key={label} className="flex gap-4 border-t border-outline-variant py-3.5">
                 <span className="w-28 flex-none text-body-small text-on-surface-variant">{label}</span>
                 <a href={href} className="font-semibold text-primary">{value}</a>
               </div>
@@ -57,7 +56,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
 
             <h2 className="mb-5 mt-9 text-headline-small">{tk('hours')}</h2>
             {site.hours.map((h) => (
-              <div key={h.day.en} className="flex gap-4 border-t-[1.5px] border-outline-variant py-3.5">
+              <div key={h.day.en} className="flex gap-4 border-t border-outline-variant py-3.5">
                 <span className="w-28 flex-none text-body-small text-on-surface-variant">
                   {t(h.day, locale)}
                 </span>
@@ -67,7 +66,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           </div>
 
           <div>
-            <div className="mb-6 border-[1.5px] border-on-surface p-7">
+            <div className="mb-6 border border-outline-variant p-7">
               <h2 className="mb-5 text-headline-small">{tk('formTitle')}</h2>
               <EnrolmentForm />
             </div>
@@ -77,7 +76,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
               src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="aspect-video w-full border-[1.5px] border-on-surface"
+              className="aspect-video w-full border border-outline-variant"
             />
           </div>
         </div>

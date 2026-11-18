@@ -1,14 +1,9 @@
 import type { ReactNode } from 'react';
 
-/** The notched tag from the original design: "Gratis" / "Level N". */
+/** The gold tag: "Gratis" / "Level N". */
 export function Badge({ children }: { children: ReactNode }) {
   return (
-    <span
-      className="inline-block bg-tertiary-container text-on-tertiary-container font-heading text-label-medium px-6 py-[7px]"
-      style={{
-        clipPath: 'polygon(0 0, 100% 0, calc(100% - 11px) 50%, 100% 100%, 0 100%, 11px 50%)',
-      }}
-    >
+    <span className="inline-block rounded-full bg-tertiary-container px-3.5 py-1.5 font-heading text-label-medium text-on-tertiary-container">
       {children}
     </span>
   );

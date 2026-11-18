@@ -23,7 +23,8 @@
     "pages": "Pages",
     "contact": "Contact",
     "orgName": "Hanna Filia English Course",
-    "rights": "© 2026 Yayasan Hanna Filia Internasional"
+    "rights": "© 2026 Yayasan Hanna Filia Internasional",
+    "sampleNotice": "Site preview: contact details, figures, teachers, testimonials and photos are sample data."
   },
   "cta": {
     "trial": "Book a free trial class",
@@ -36,11 +37,10 @@
     "sendViaWhatsapp": "Send via WhatsApp"
   },
   "home": {
-    "heroTitle": "English for people who intend to go further",
-    "heroBody": "An English course in Nagoya, Batam. Small classes, certified teachers, from age six through to university preparation abroad.",
-    "levelLadder": "The level ladder",
-    "studyAbroadRow": "Study abroad",
-    "marquee": "Small classes · Maximum 8 students per class · Certified teachers · Nagoya, Batam · Since 2003 · Learning English is Fun and Easy · ",
+    "metaTitle": "English Course in Batam — Hanna Filia English Course",
+    "metaDescription": "An English course in Nagoya, Batam. Small classes, certified teachers, from age six through to university preparation abroad.",
+    "heroTitle": "An English course in Batam for people who want to dare to speak",
+    "heroBody": "Small classes of eight at most, so everyone gets to speak. From Kids to TOEFL & IELTS in Nagoya, Batam. Your first class is free.",
     "pickTitle": "Which class fits?",
     "pickBody": "Pick whichever is closest to your situation.",
     "pickRecommendation": "Recommended",
@@ -49,10 +49,8 @@
     "hfosBody": "Hanna Filia Overseas Service guides you through choosing a university, translating documents, arranging a student pass, and finding somewhere to live. Malaysia, Singapore, Australia, Canada, and New Zealand.",
     "hfosMapAlt": "Diagram of study routes from Batam to Malaysia, Singapore, Australia, Canada, and New Zealand",
     "testimonialsTitle": "What they say",
-    "trialBadge": "Free",
     "trialTitle": "Try one class first, free",
-    "trialBody": "Come to Nagoya Newton, sit in on a session, see the class for yourself. No cost, no obligation.",
-    "moreLinks": "More pages"
+    "trialBody": "Come to Nagoya Newton, sit in on a session, see the class for yourself. No cost, no obligation."
   },
   "pick": {
     "kids": "My child is 6–12",
@@ -65,7 +63,6 @@
     "hfosMeta": "Hanna Filia Overseas Service · from choosing a university to departure"
   },
   "about": {
-    "eyebrow": "About us",
     "title": "Two decades teaching Batam to speak",
     "vision": "Vision",
     "mission": "Mission",
@@ -73,7 +70,6 @@
     "facilities": "Facilities"
   },
   "programs": {
-    "eyebrow": "Courses",
     "title": "Five levels, starting from the first word",
     "body": "A free placement test decides where you start. One free trial session before you enrol.",
     "crossProgram": "Included in every program",
@@ -92,7 +88,6 @@
     "trySessionBody": "Free placement test, no obligation to continue."
   },
   "hfos": {
-    "eyebrow": "HFOS",
     "title": "Hanna Filia Overseas Service",
     "lead": "Getting into a university abroad is not one step but a dozen. We have been through them with dozens of Batam families.",
     "services": "Services",
@@ -101,12 +96,12 @@
     "step": "Step"
   },
   "teachers": {
-    "eyebrow": "Teachers",
+    "metaDescription": "Meet the six teachers at Hanna Filia English Course in Batam: their training, certifications and how they teach.",
     "title": "The six people at the front of the room",
     "portraitPending": "Photograph to follow"
   },
   "gallery": {
-    "eyebrow": "Gallery & events",
+    "metaDescription": "Photos of classes and regular activities at Hanna Filia English Course in Nagoya, Batam.",
     "title": "Classes and events",
     "filterLabel": "Filter the gallery by category",
     "activities": "Regular events",
@@ -114,12 +109,11 @@
     "resultsCount": "{count, plural, =0 {No photos shown} one {# photo shown} other {# photos shown}}"
   },
   "articles": {
-    "eyebrow": "Articles",
     "title": "Notes from the classroom",
     "body": "This section is planned for phase two. The three titles below show the shape of the page."
   },
   "contact": {
-    "eyebrow": "Contact & enrolment",
+    "metaDescription": "Address, opening hours, WhatsApp and the free trial class form for Hanna Filia English Course at Nagoya Newton, Batam.",
     "title": "Come to Nagoya Newton",
     "address": "Address",
     "hours": "Opening hours",
@@ -133,7 +127,6 @@
   },
   "form": {
     "name": "Full name",
-    "namePlaceholder": "Full name",
     "whatsapp": "WhatsApp number",
     "whatsappPlaceholder": "08xx xxxx xxxx",
     "age": "Student's age",

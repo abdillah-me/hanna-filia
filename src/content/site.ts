@@ -1,5 +1,10 @@
 import type { Hours, Localized } from './types.ts';
 
+/** True while contact details, statistics, teachers, testimonials and photos
+ *  are still sample data. Shows a notice on every page so nothing invented is
+ *  read as fact. Set to false once the client's real data is in. */
+export const SAMPLE_DATA = true;
+
 /** Flip to true to show programme prices across the whole site. */
 export const SHOW_PRICES = false;
 
@@ -18,7 +23,6 @@ type Site = {
   motto: string;
   addressLines: string[];
   hours: Hours[];
-  accreditationNote: Localized;
 };
 
 export const site: Site = {
@@ -48,10 +52,6 @@ export const site: Site = {
     { day: { id: 'Sabtu', en: 'Saturday' }, open: { id: '09.00–16.00 WIB', en: '09:00–16:00 WIB' } },
     { day: { id: 'Minggu', en: 'Sunday' }, open: { id: 'Tutup', en: 'Closed' } },
   ],
-  accreditationNote: {
-    id: 'NILEK / NPSN — menunggu data · Akreditasi BAN PAUD & PNF — menunggu data',
-    en: 'NILEK / NPSN — pending · BAN PAUD & PNF accreditation — pending',
-  },
 };
 
 export const stats: { value: string; countTo: number | null; label: Localized }[] = [
@@ -90,5 +90,5 @@ export const bottomNavKeys = ['home', 'programs', 'studyAbroad', 'gallery', 'con
 export type BottomNavKey = (typeof bottomNavKeys)[number];
 
 export const footerKeys: RouteKey[] = [
-  'home', 'about', 'programs', 'studyAbroad', 'teachers', 'gallery', 'articles', 'contact',
+  'home', 'about', 'programs', 'studyAbroad', 'teachers', 'gallery', 'contact',
 ];

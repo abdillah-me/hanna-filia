@@ -13,11 +13,14 @@ export function PhotoSlot({
   className = '',
   sizes = '(max-width: 768px) 100vw, 560px',
   priority = false,
+  ratio,
 }: {
   imageKey: ImageKey;
   className?: string;
   sizes?: string;
   priority?: boolean;
+  /** Overrides the manifest's slot shape where a layout needs another crop. */
+  ratio?: string;
 }) {
   const locale = useLocale() as Locale;
   const entry = images[imageKey];
@@ -26,8 +29,8 @@ export function PhotoSlot({
 
   return (
     <div
-      className={`relative overflow-hidden bg-surface-container-high ${className}`}
-      style={{ aspectRatio: entry.ratio }}
+      className={`relative overflow-hidden bg-surface-container-high ${/\brounded-/.test(className) ? '' : 'rounded-lg'} ${className}`}
+      style={{ aspectRatio: ratio ?? entry.ratio }}
     >
       <Image
         src={entry.src}

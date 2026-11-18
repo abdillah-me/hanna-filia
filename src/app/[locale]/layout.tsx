@@ -3,10 +3,11 @@ import type { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { Archivo, Source_Sans_3, Newsreader } from 'next/font/google';
+import { Figtree } from 'next/font/google';
 
 import { routing } from '@/i18n/routing';
-import { SITE_URL } from '@/content/site';
+import { SAMPLE_DATA, SITE_URL } from '@/content/site';
+import { jsonLdHtml, organizationJsonLd } from '@/lib/seo';
 import type { Locale } from '@/content/types';
 import { SkipLink } from '@/components/chrome/SkipLink';
 import { TopAppBar } from '@/components/chrome/TopAppBar';
@@ -14,25 +15,10 @@ import { Footer } from '@/components/chrome/Footer';
 import { BottomNav } from '@/components/chrome/BottomNav';
 import '@/styles/globals.css';
 
-const archivo = Archivo({
+const figtree = Figtree({
   subsets: ['latin'],
-  weight: ['400', '500', '700', '800'],
-  variable: '--font-archivo',
-  display: 'swap',
-});
-
-const sourceSans = Source_Sans_3({
-  subsets: ['latin'],
-  weight: ['400', '600'],
-  variable: '--font-source-sans',
-  display: 'swap',
-});
-
-const newsreader = Newsreader({
-  subsets: ['latin'],
-  weight: ['400'],
-  style: ['italic'],
-  variable: '--font-newsreader',
+  style: ['normal', 'italic'],
+  variable: '--font-figtree',
   display: 'swap',
 });
 
@@ -54,18 +40,7 @@ export async function generateMetadata({
       default: 'Hanna Filia English Course — Batam',
       template: '%s · Hanna Filia',
     },
-    description: t('heroBody'),
-    alternates: {
-      canonical: `/${locale}`,
-      languages: { id: '/id', en: '/en' },
-    },
-    openGraph: {
-      type: 'website',
-      siteName: 'Hanna Filia English Course',
-      locale: locale === 'id' ? 'id_ID' : 'en_US',
-      title: 'Hanna Filia English Course — Batam',
-      description: t('heroBody'),
-    },
+    description: t('metaDescription'),
   };
 }
 
@@ -79,16 +54,23 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
+  const tf = await getTranslations('footer');
 
   return (
-    <html lang={locale} className={`${archivo.variable} ${sourceSans.variable} ${newsreader.variable}`}>
+    <html lang={locale} className={figtree.variable}>
       <body className="bg-surface text-on-surface pb-[calc(var(--hf-bottom-nav-h)+env(safe-area-inset-bottom))] md:pb-0">
         {/* Reveal hides its children until client JS reveals them, so without scripting that content would never appear. */}
         <noscript>
           <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdHtml(organizationJsonLd(locale))} />
         <NextIntlClientProvider>
           <SkipLink />
+          {SAMPLE_DATA ? (
+            <p className="bg-tertiary-container px-6 py-2 text-center text-body-small text-on-tertiary-container">
+              {tf('sampleNotice')}
+            </p>
+          ) : null}
           <TopAppBar />
           {/* tabIndex={-1}: a plain div isn't focusable, so without this the
               skip link would only scroll here — keyboard focus would land on
