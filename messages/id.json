@@ -39,7 +39,10 @@
   "home": {
     "metaTitle": "Kursus Bahasa Inggris di Batam — Hanna Filia English Course",
     "metaDescription": "Kursus bahasa Inggris di Nagoya, Batam. Kelas kecil, pengajar bersertifikat, dari usia 6 tahun sampai persiapan kuliah di luar negeri.",
-    "heroTitle": "Kursus bahasa Inggris di Batam untuk yang mau berani bicara",
+    "heroLead": "Kursus bahasa Inggris di Batam untuk yang mau",
+    "heroEmphasis": "berani bicara",
+    "chipClass": "Maks. 8 siswa per kelas",
+    "chipTrial": "Kelas pertama gratis",
     "heroBody": "Kelas kecil, maksimal 8 siswa, jadi semua kebagian bicara. Dari Kids sampai TOEFL & IELTS di Nagoya, Batam. Kelas pertama gratis.",
     "pickTitle": "Kelas mana yang cocok?",
     "pickBody": "Pilih yang paling mendekati keadaan Anda.",

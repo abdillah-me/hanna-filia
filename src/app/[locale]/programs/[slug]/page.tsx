@@ -11,6 +11,7 @@ import { Badge } from '@/components/m3/Badge';
 import { Button } from '@/components/m3/Button';
 import { Link } from '@/i18n/navigation';
 import { PhotoSlot } from '@/components/media/PhotoSlot';
+import { BrandPattern } from '@/components/media/BrandPattern';
 import { Section } from '@/components/sections/Section';
 import { courseJsonLd, jsonLdHtml, pageMetadata } from '@/lib/seo';
 
@@ -51,8 +52,13 @@ export default async function ProgramDetailPage({ params }: { params: Promise<Pa
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdHtml(courseJsonLd(program, locale))} />
-      <section className="border-b border-outline-variant bg-surface-container-low text-on-surface">
-        <div className="mx-auto max-w-[1140px] px-6 pb-16 pt-14">
+      <section className="bg-primary-container text-on-primary-container">
+        <div className="relative mx-auto max-w-[1140px] px-6 pb-14 pt-12">
+          <BrandPattern
+            pattern="block"
+            tone="light"
+            className="absolute right-6 top-1/2 hidden h-40 w-40 -translate-y-1/2 md:block"
+          />
           <Link
             href={ROUTES.programs}
             className="mb-6 block w-fit font-heading text-body-small text-on-surface-variant"

@@ -39,7 +39,10 @@
   "home": {
     "metaTitle": "English Course in Batam — Hanna Filia English Course",
     "metaDescription": "An English course in Nagoya, Batam. Small classes, certified teachers, from age six through to university preparation abroad.",
-    "heroTitle": "An English course in Batam for people who want to dare to speak",
+    "heroLead": "An English course in Batam for people who want to",
+    "heroEmphasis": "dare to speak",
+    "chipClass": "8 students per class, max",
+    "chipTrial": "First class free",
     "heroBody": "Small classes of eight at most, so everyone gets to speak. From Kids to TOEFL & IELTS in Nagoya, Batam. Your first class is free.",
     "pickTitle": "Which class fits?",
     "pickBody": "Pick whichever is closest to your situation.",

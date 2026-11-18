@@ -1,6 +1,7 @@
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ROUTES, footerKeys, site } from '@/content/site';
+import { BrandPattern } from '@/components/media/BrandPattern';
 import { t as tr } from '@/content/types';
 import type { Locale } from '@/content/types';
 
@@ -10,7 +11,12 @@ export function Footer() {
   const locale = useLocale() as Locale;
 
   return (
-    <footer className="border-t border-outline-variant bg-inverse-surface text-inverse-on-surface">
+    <footer className="bg-inverse-surface pb-[calc(var(--hf-bottom-nav-h)+env(safe-area-inset-bottom))] text-inverse-on-surface md:pb-0">
+      <div className="flex overflow-hidden">
+        {[0, 1, 2].map((i) => (
+          <BrandPattern key={i} pattern="strip" tone="ink" className="h-8 w-auto flex-none md:h-10" />
+        ))}
+      </div>
       <div className="mx-auto grid max-w-[1140px] gap-12 px-6 pb-8 pt-16
                       md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,1fr)]">
         <div>

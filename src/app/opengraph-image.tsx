@@ -29,7 +29,7 @@ export default function OpengraphImage() {
         <div style={{ marginTop: 28, fontSize: 104, fontWeight: 800, letterSpacing: -3, lineHeight: 1.05 }}>
           Hanna Filia English Course
         </div>
-        <div style={{ marginTop: 36, fontSize: 40, color: '#F5D6AE' }}>
+        <div style={{ marginTop: 36, fontSize: 40, color: '#F6F1F2' }}>
           Kelas kecil · Pengajar bersertifikat · Kids sampai TOEFL &amp; IELTS
         </div>
       </div>

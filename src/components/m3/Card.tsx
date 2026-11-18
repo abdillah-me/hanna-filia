@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { Link } from '@/i18n/navigation';
 
 const BASE =
-  'block border border-outline-variant rounded-lg bg-surface text-on-surface ' +
+  'block border border-outline-variant rounded-[1.25rem] bg-surface text-on-surface ' +
   'transition-[box-shadow,border-color] duration-200 ease-standard';
 
 const INTERACTIVE =

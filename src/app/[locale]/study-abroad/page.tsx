@@ -27,7 +27,7 @@ export default async function StudyAbroadPage({ params }: { params: Promise<{ lo
 
   return (
     <main>
-      <section className="border-b border-outline-variant bg-surface-container-low text-on-surface">
+      <section className="bg-primary-container text-on-primary-container">
         <div className="mx-auto grid max-w-[1140px] items-center gap-10 px-6 py-16 md:grid-cols-2">
           <div>
             <h1 className="mb-6 text-display-medium">{th('title')}</h1>

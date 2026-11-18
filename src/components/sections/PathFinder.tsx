@@ -60,11 +60,11 @@ export function PathFinder() {
               aria-controls={resultId}
               onClick={() => setPicked(i)}
               className={
-                'state-layer relative rounded-md border px-4 py-4 text-left ' +
+                'state-layer relative rounded-full border px-5 py-3.5 text-left ' +
                 'font-heading text-title-medium cursor-pointer ' +
                 'transition-colors duration-200 ease-standard ' +
                 (picked === i
-                  ? 'border-primary bg-surface text-on-surface'
+                  ? 'border-primary bg-primary text-on-primary'
                   : 'border-outline-variant bg-surface text-on-secondary-container')
               }
             >

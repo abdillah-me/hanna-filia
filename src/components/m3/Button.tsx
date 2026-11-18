@@ -2,11 +2,14 @@ import type { MouseEventHandler, ReactNode } from 'react';
 import { Link } from '@/i18n/navigation';
 import { Icon, type IconName } from '@/components/Icon';
 
-type Variant = 'filled' | 'outlined';
+type Variant = 'filled' | 'outlined' | 'accent' | 'onPrimary';
 
 const VARIANTS: Record<Variant, string> = {
-  filled: 'bg-primary text-on-primary border-primary px-5 hover:elevation-1',
-  outlined: 'bg-surface text-on-surface border-outline px-5 hover:border-on-surface',
+  filled: 'bg-primary text-on-primary border-primary px-6 hover:elevation-1',
+  outlined: 'bg-surface text-on-surface border-outline px-6 hover:border-on-surface',
+  // On a crimson field: gold for the one primary action, a white outline beside it.
+  accent: 'bg-tertiary-container text-on-tertiary-container border-tertiary-container px-6 hover:elevation-2',
+  onPrimary: 'bg-transparent text-on-primary border-on-primary px-6',
 };
 
 // `inline-flex` here is unconditional and cannot be overridden by a
@@ -20,7 +23,7 @@ const VARIANTS: Record<Variant, string> = {
 // viewport width).
 const BASE =
   'state-layer press relative inline-flex items-center justify-center gap-2 ' +
-  'border rounded-md py-3 min-h-12 ' +
+  'border rounded-full py-3 min-h-12 ' +
   'font-heading text-label-large no-underline cursor-pointer ' +
   'transition-[box-shadow,background-color,border-color] duration-200 ease-standard ' +
   'disabled:opacity-45 disabled:cursor-not-allowed';

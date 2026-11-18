@@ -11,7 +11,7 @@ export function TrialCta() {
           <h2 className="mb-4 text-display-small">{th('trialTitle')}</h2>
           <p className="max-w-[52ch] text-body-large">{th('trialBody')}</p>
         </div>
-        <div className="rounded-lg border border-outline-variant bg-surface p-7 elevation-1">
+        <div className="rounded-[1.5rem] border border-outline-variant bg-surface p-7 elevation-2">
           <EnrolmentForm compact />
         </div>
       </div>

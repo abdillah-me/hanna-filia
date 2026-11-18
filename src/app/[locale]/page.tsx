@@ -40,14 +40,16 @@ export default async function HomePage({
   return (
     <main>
       <Hero
-        title={t("heroTitle")}
+        lead={t("heroLead")}
+        emphasis={t("heroEmphasis")}
         body={t("heroBody")}
+        chips={[t("chipClass"), t("chipTrial")]}
         actions={
           <>
-            <Button href={ROUTES.contact}>
+            <Button href={ROUTES.contact} variant="accent" icon="arrow_right">
               {tc("trial")}
             </Button>
-            <Button href={ROUTES.programs} variant="outlined">
+            <Button href={ROUTES.programs} variant="onPrimary">
               {tc("seePrograms")}
             </Button>
           </>
